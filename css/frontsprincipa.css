@@ -1,0 +1,65 @@
+@import url(./Abstracts/vars.css);
+@import url(./utilisprincipal.css);
+
+.login-btn {
+    border: 0ch;
+    border-color: var(--clr-font);
+}
+
+.back-icon {
+    width: 3rem;
+    margin: 10px;
+    margin-left: 30px;
+    margin-top: 2rem;
+}
+
+.decoration {
+    text-decoration: none;
+    font-style: none;
+}
+
+.testimonial1 {
+    min-height: 100vh;
+    margin: auto;
+    background-image: url(../imgs/foodss.jpg);
+    background-repeat: no-repeat;
+    background-image: cover;
+    background-size: cover;
+    height: 500px;
+}
+
+.align-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.nav {
+    height: 7.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.like {
+    color: url(--clr-font);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    left: 54%;
+    text-decoration: none;
+    position: relative;
+}
+
+.authorleft {
+    color: url(--clr-font);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    top: 1%;
+    left: 7%;
+    position: relative;
+    text-decoration: none;
+}
