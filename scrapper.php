@@ -3,7 +3,7 @@
     include('simple_html_dom.php');
 
     //https://stackoverflow.com/questions/4356289/php-random-string-generator
-    function generateRandomString($length = 10) {
+    function generateRandomString($length = 20) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
@@ -26,35 +26,34 @@
 
         $recipe = [];
         $ingredients = [];
-        $directions = [];
+        $descriptions = [];
         
         $detailed_recipe = file_get_html($_POST["link"], 0, $context);
 
         $data['name'] = $detailed_recipe->find('h1',0)->plaintext;
         
-        $image = $detailed_recipe->find('.content-lead-image img',0);
+        $image = $detailed_recipe->find('.img',0);
         if($image == null){
             $data['image'] = "no image";
         }else {
             $data['image'] = $image->src;
-            file_put_contents("./images/recipe-".generateRandomString().".png",file_get_contents($image->src));
+            file_put_contents("./imgs/recipe-".generateRandomString().".png",file_get_contents($image->src));
         }
 
-        $data['description'] = $detailed_recipe->find('#recipe-introduction p', 0)->plaintext;
+       // $data['description'] = $detailed_recipe->find('#recipe-introduction p', 0)->plaintext;
        
-        $data['yields'] = $detailed_recipe->find('.css-1ih0d14', 0)->plaintext;
-        $data['preptime'] = $detailed_recipe->find('.css-1ih0d14', 1)->plaintext;
-        $data['totaltime'] = $detailed_recipe->find('.css-1ih0d14', 2)->plaintext;
+        $data['level'] = $detailed_recipe->find('.rdr-tag',0)->plaintext;
+        $data['totaltime'] = $detailed_recipe->find('.rdr-tag',1)->plaintext;
         
-        foreach($detailed_recipe->find('.ingredient-lists li') as $ingredient){
+        foreach($detailed_recipe->find('.ingredients ul li') as $ingredient){
             $ingredients[] = "<li>".$ingredient->plaintext."</li>";
         }
         $data['ingredients'] = $ingredients;
 
-        foreach($detailed_recipe->find('.directions ol li') as $direction){
-            $directions[] = "<li>".$direction->plaintext."</li>";
+        foreach($detailed_recipe->find('.description ol li') as $description){
+            $descriptions[] = "<li>".$description->plaintext."</li>";
         }
-        $data['directions'] = $directions;
+        $data['descriptions'] = $descriptions;
         
         $recipe[] = $data;
 
@@ -76,6 +75,6 @@
         <input name="link" type="text">
         <input type="submit" value="GET DATA">
     </form>
-    <a href="https://www.recetasgratis.net/" target="blank">Recipes</a>
+    <a href="https://www.recetasderechupete.com/" target="blank">Recipes</a>
 </body>
 </html>
