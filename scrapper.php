@@ -25,14 +25,14 @@
         );
 
         $recipe = [];
-        $ingredients = [];
-        $descriptions = [];
+        $ingredientss = [];
+        $descriptionss = [];
         
         $detailed_recipe = file_get_html($_POST["link"], 0, $context);
 
         $data['name'] = $detailed_recipe->find('h1',0)->plaintext;
         
-        $image = $detailed_recipe->find('.img',0);
+        $image = $detailed_recipe->find('.sf-entry-featured-media img',0);
         if($image == null){
             $data['image'] = "no image";
         }else {
@@ -42,18 +42,18 @@
 
        // $data['description'] = $detailed_recipe->find('#recipe-introduction p', 0)->plaintext;
        
-        $data['level'] = $detailed_recipe->find('.rdr-tag',0)->plaintext;
-        $data['totaltime'] = $detailed_recipe->find('.rdr-tag',1)->plaintext;
+        $data['totaltime'] = $detailed_recipe->find('.valor',0)->plaintext;
+        $data['level'] = $detailed_recipe->find('.valor',2)->plaintext;
         
-        foreach($detailed_recipe->find('.ingredients ul li') as $ingredient){
-            $ingredients[] = "<li>".$ingredient->plaintext."</li>";
+        foreach($detailed_recipe->find('ul li') as $ingredient){
+            $ingredientss[] = "<li>".$ingredient->plaintext."</li>";
         }
-        $data['ingredients'] = $ingredients;
+        $data['ingredients'] = $ingredientss;
 
-        foreach($detailed_recipe->find('.description ol li') as $description){
-            $descriptions[] = "<li>".$description->plaintext."</li>";
+        foreach($detailed_recipe->find('ol li') as $descriptions){
+            $descriptionss[] = "<li>".$descriptions->plaintext."</li>";
         }
-        $data['descriptions'] = $descriptions;
+        $data['descriptions'] = $descriptionss;
         
         $recipe[] = $data;
 

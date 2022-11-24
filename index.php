@@ -102,7 +102,7 @@
                 <div class="card cardss" style="width: 18rem;">
                     <img src="./imgs/iimg-1.jpg" class="card-img-top mt-3 p-2" alt="receta">
                     <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
+                        <a class="card-title pointer text-decoration-none text-center d-block category text-truncate"
                             href="./detalle.html">
                             Sancocho Trifásico </a>
                         <p class="card-text text-center mt-3">
@@ -111,7 +111,7 @@
 
                         <!-- <p class="card-text text-center mt-3">corazón</p> -->
                         <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
+                            <div class="col-7 author-fd text-truncate">60 min</div>
                             <div class="col-5 ps-5 authorleft">Fácil</div>
                         </div>
                     </div>
@@ -122,7 +122,7 @@
                 <div class="card cardss" style="width: 18rem;">
                     <img src="./imgs/iimg-2.jpg" class="card-img-top mt-3 p-2" alt="receta">
                     <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
+                        <a class="card-title pointer text-decoration-none text-center d-block category text-truncate"
                             href="./detalle.html">
                             ENSALADA DE ATÚN</a>
                         <p class="card-text text-center mt-3">
@@ -140,7 +140,7 @@
                 <div class="card cardss" style="width: 18rem;">
                     <img src="./imgs/iimg-3.jpg" class="card-img-top mt-3 p-2" alt="receta">
                     <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
+                        <a class="card-title pointer text-decoration-none text-center d-block category text-truncate"
                             href="./detalle.html">
                             BLT IN A BOWL</a>
                         <p class="card-text text-center mt-3">
@@ -184,7 +184,7 @@
                             <img src="./imgs/like.png" alt="like" style="width:2em;">
                         </p>
                         <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
+                            <div class="col-7 author-fd text-truncate">60 min</div>
                             <div class="col-5 ps-5 authorleft">Fácil</div>
                         </div>
                     </div>
@@ -204,7 +204,7 @@
                             <img src="./imgs/like.png" alt="like" style="width:2em;">
                         </p>
                         <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
+                            <div class="col-7 author-fd text-truncate">60 min</div>
                             <div class="col-5 ps-5 authorleft">Fácil</div>
                         </div>
                     </div>
