@@ -32,20 +32,20 @@
 
         $data['name'] = $detailed_recipe->find('h1',0)->plaintext;
         
-        $image = $detailed_recipe->find('.sf-entry-featured-media img',0);
-        if($image == null){
-            $data['image'] = "no image";
+        $image = $detailed_recipe->find('.post-thumbnail img',0);
+          $data['image'] = "no image"; if($image == null){
+         
         }else {
             $data['image'] = $image->src;
-            file_put_contents("./imgs/recipe-".generateRandomString().".png",file_get_contents($image->src));
+            file_put_contents("./imgs/recipe-".generateRandomString().".jpg",file_get_contents($image->src));
         }
 
-       // $data['description'] = $detailed_recipe->find('#recipe-introduction p', 0)->plaintext;
-       
+        //$data['description'] = $detailed_recipe->find('#recipe-introduction p', 0)->plaintext;
+
         $data['totaltime'] = $detailed_recipe->find('.valor',0)->plaintext;
         $data['level'] = $detailed_recipe->find('.valor',2)->plaintext;
         
-        foreach($detailed_recipe->find('ul li') as $ingredient){
+        foreach($detailed_recipe->find('.entry-content ul li') as $ingredient){
             $ingredientss[] = "<li>".$ingredient->plaintext."</li>";
         }
         $data['ingredients'] = $ingredientss;
@@ -75,6 +75,6 @@
         <input name="link" type="text">
         <input type="submit" value="GET DATA">
     </form>
-    <a href="https://www.recetasderechupete.com/" target="blank">Recipes</a>
+    <a href="https://cocina-casera.com/" target="blank">Recipes</a>
 </body>
 </html>
