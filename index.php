@@ -136,23 +136,25 @@
 
         <section class="container-fluid d-flex justify-content-center">
 
-            <div class="col d-flex justify-content-center ">
-                <div class="card" style="width: 18rem;">
-                    <img src="./imgs/fearudd.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            Sandwich</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <?php
+                foreach ($recipes as $recipe){
+                    echo"<div class='col mt-4 d-flex justify-content-center'>
+                            <div class='card cardss' style='width: 18rem;'>
+                                <img src='./imgs/".$recipe["recipe_image"]."' class='card-img-top mt-3 p-2' alt='".$recipe["recipe_name"]."'>
+                                <div class='card-body'>
+                                    <a class='card-title pointer text-decoration-none text-center d-block category text-truncate' href='./detalle.html'>".$recipe["recipe_name"]."</a>
+                                    <p class='card-text text-center mt-3'>
+                                        <img src='./imgs/like.png' alt='like' style='width:2em;'>
+                                    </p>
+                                    <div class='row'>
+                                        <div class='col-7 author-fd text-truncate'>".utf8_decode($recipe["recipe_time"])."</div>
+                                        <div class='col-5 ps-5 authorleft'>".utf8_decode($recipe["recipe_level"])."</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>";
+                    }
+            ?>
 
             </section>
         </div>
