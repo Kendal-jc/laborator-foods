@@ -6,10 +6,11 @@
         $database = new Medoo([
             // [required]
             'type' => 'mysql',
-            'host' => 'db4free.net:3306',
+            'host' => 'localhost',
             'database' => 'recipess',
-            'username' => 'admimm',
-            'password' => 'Sark709909'
+            'username' => 'root',
+            'password' => ''
         ]);
     }
 ?>
+
