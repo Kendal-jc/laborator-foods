@@ -1,3 +1,11 @@
+<?php
+        require 'db.php';
+
+        $recipes = $database->select("tb_recipes","*",[
+            'LIMIT' =>11
+        ]);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,196 +104,29 @@
                 <h2 class="mt-3 ms-3 float-right title-lg margin-t">Top 10 en recetas</h2>
             </div>
         </div>
+
         <div class="row gap-3 d-flex justify-content-center" style="padding-top: 5rem;">
 
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-1.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category text-truncate"
-                            href="./detalle.html">
-                            Sancocho Trifásico </a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-
-                        <!-- <p class="card-text text-center mt-3">corazón</p> -->
-                        <div class="row">
-                            <div class="col-7 author-fd text-truncate">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-2.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category text-truncate"
-                            href="./detalle.html">
-                            ENSALADA DE ATÚN</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-3.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category text-truncate"
-                            href="./detalle.html">
-                            BLT IN A BOWL</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-4.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category text-truncate"
-                            href="./detalle.html">DESAYUNO INGLÉS</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-5.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            Ensalada de fideos</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd text-truncate">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card" style="width: 18rem;">
-                    <img src="./imgs/iimg-6.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            SCROQUETAS</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd text-truncate">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-7.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            Churros</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-8.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            HUEVOS BENEDICTINOS</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-9.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            Sopa de Plátano</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-10.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            Sopa de pollo</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <?php
+                foreach ($recipes as $recipe){
+                    echo"<div class='col mt-4 d-flex justify-content-center'>
+                            <div class='card cardss' style='width: 18rem;'>
+                                <img src='./imgs/".$recipe["recipe_image"]."' class='card-img-top mt-3 p-2' alt='".$recipe["recipe_name"]."'>
+                                <div class='card-body'>
+                                    <a class='card-title pointer text-decoration-none text-center d-block category text-truncate' href='./detalle.html'>".$recipe["recipe_name"]."</a>
+                                    <p class='card-text text-center mt-3'>
+                                        <img src='./imgs/like.png' alt='like' style='width:2em;'>
+                                    </p>
+                                    <div class='row'>
+                                        <div class='col-7 author-fd text-truncate'>".$recipe["recipe_time"]."</div>
+                                        <div class='col-5 ps-5 authorleft'>".$recipe["recipe_level"]."</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>";
+                    }
+            ?>
+</div>
 
         <!-- </section>-->
         <div class="container-md d-flex justify-content-center mt-xl-5 mt-5">
