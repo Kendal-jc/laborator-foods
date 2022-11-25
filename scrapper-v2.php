@@ -52,7 +52,7 @@ require 'db.php';
          
         }else {
             $data['image'] = $image->src;
-            file_put_contents("./imgs/recipe-".generateRandomString().".jpg",file_get_contents($image->src));
+            file_put_contents("./imgs/recipe-".generateRandomString().".png",file_get_contents($image->src));
         }
 
         //$data['description'] = $detailed_recipe->find('#recipe-introduction p', 0)->plaintext;
