@@ -120,7 +120,7 @@
                                     </p>
                                     <div class='row'>
                                         <div class='col-7 author-fd text-truncate'>".$recipe["recipe_time"]."</div>
-                                        <div class='col-5 ps-5 authorleft'>".utf8_decode()."</div>
+                                        <div class='col-5 ps-5 authorleft'>".utf8_decode($recipe["recipe_level"])."</div>
                                     </div>
                                 </div>
                             </div>
