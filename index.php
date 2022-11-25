@@ -119,7 +119,7 @@
                                         <img src='./imgs/like.png' alt='like' style='width:2em;'>
                                     </p>
                                     <div class='row'>
-                                        <div class='col-7 author-fd text-truncate'>".$recipe["recipe_time"]."</div>
+                                        <div class='col-7 author-fd text-truncate'>".utf8_decode($recipe["recipe_time"])."</div>
                                         <div class='col-5 ps-5 authorleft'>".utf8_decode($recipe["recipe_level"])."</div>
                                     </div>
                                 </div>
