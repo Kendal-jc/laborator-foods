@@ -2,15 +2,20 @@
     namespace Medoo;
     require 'Medoo.php';
 
+    <?php 
+    namespace Medoo;
+    require 'Medoo.php';
+
     if(!isset($database)){
         $database = new Medoo([
             // [required]
             'type' => 'mysql',
-            'host' => 'localhost',
+            'host' => 'db4free.net:3306',
             'database' => 'recipess',
-            'username' => 'root',
-            'password' => ''
+            'username' => 'admimm',
+            'password' => 'Sark709909'
         ]);
     }
 ?>
+
 
