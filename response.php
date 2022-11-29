@@ -1,17 +1,5 @@
 <?php
 
-    /*namespace Medoo;
-    require 'Medoo.php';
-
-    $database = new Medoo([
-        // [required]
-        'type' => 'mysql',
-        'host' => 'localhost',
-        'database' => 'recipes',
-        'username' => 'root',
-        'password' => ''
-    ]);*/
-
     require 'db.php';
 
     function generateRandomString($length = 10) {
@@ -31,7 +19,7 @@
         /* foreach($_POST["ingredients"] as $ingredient){//$ingredient es cada ingrediente en el array
             $ingredients.= $ingredient." ";//despues del espacio se agrega el siguiente ingrediente
         } */
-        foreach($_POST["ingredients"] as $key => $ingredient){
+        foreach($_POST["ingredient"] as $key => $ingredient){
             if($key == array_key_last($_POST["ingredients"])){
                 $ingredients.= $ingredient;
             } else{
