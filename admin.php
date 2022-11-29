@@ -1,3 +1,8 @@
+<?php
+    require 'db.php';
+    $data = $database->select("tb_recipe_category", "*");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,102 +33,187 @@
         </header>
 
 
-
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md prueba-c">
                     <h3 class="mb-4 tittle-recipe">Registrar una receta</h3>
-                    <div class="admin-inputs-divs">
-                        <h4>Nombre de la receta:</h4>
-                        <input class="admin-inputs" type="Name">
-                    </div>
-                    <div class="admin-inputs-divs">
-                        <h4>Tiempo de preparación:</h4>
-                        <input class="admin-inputs" type="Number">
-                    </div>
-                    <div class="admin-inputs-divs">
-                        <h4>Tiempo de cocción:</h4>
-                        <input class="admin-inputs" type="Number">
-                    </div>
-                    <div class="admin-inputs-divs">
-                        <h4>Tiempo total:</h4>
-                        <input class="admin-inputs" type="number">
-                    </div>
-                    <div class="admin-inputs-divs">
-                        <h4>Porciones:</h4>
-                        <input class="admin-inputs" type="Name">
-                    </div>
-                    <div class="admin-inputs-divs">
-                        <h4>Nivel de complejidad:</h4>
-                        <div class="input-group mb-3">
-                            <select class="form-select" id="inputGroupSelect01">
-                                <option selected>Fácil...</option>
-                                <option value="1">Intermedio</option>
-                                <option value="2">Avanzado</option>
-                            </select>
+
+                    <form action="response.php" method="post" enctype="multipart/form-data">
+                        <!--atributo para enviar archivos desde el form-->
+
+                        <div class="admin-inputs-divs">
+                            <h4>Nombre de la receta:</h4>
+                            <input class="admin-inputs" type="text" name="recipe_name">
                         </div>
-                    </div>
-                    <div class="admin-inputs-divs">
-                        <h4>Categoría:</h4>
-                        <div class="input-group mb-3 ms-4">
-                            <select class="form-select" id="inputGroupSelect01">
-                                <option selected>Desayuno...</option>
-                                <option value="1">Bebidas</option>
-                                <option value="2">Entradas</option>
-                                <option value="3">Almuerzo</option>
-                                <option value="4">Postres</option>
-                                <option value="5">Sopas</option>
-                            </select>
+
+                        <div class="admin-inputs-divs">
+                            <h4>Tiempo de preparación:</h4>
+                            <input class="admin-inputs" type="Number" name="prep_time">
                         </div>
-                    </div>
-                    <div class="admin-inputs-divs">
-                        <h4>Ocasión:</h4>
-                        <div class="input-group mb-3 ms-4">
-                            <select class="form-select" id="inputGroupSelect01">
-                                <option selected>Todas...</option>
-                                <option value="1">Desayuno</option>
-                                <option value="1">Día del padre</option>
-                                <option value="2">Día de la madre</option>
-                                <option value="3">Día del niño</option>
-                                <option value="4">Navidad</option>
-                                <option value="5">Semana santa</option>
-                                <option value="6">Verano</option>
-                            </select>
+
+                        <div class="admin-inputs-divs">
+                            <h4>Tiempo de cocción:</h4>
+                            <input class="admin-inputs" type="Number" name="cook_time">
                         </div>
-                    </div>
+
+                        <div class="admin-inputs-divs">
+                            <h4>Tiempo total:</h4>
+                            <input class="admin-inputs" type="number" name="total_time">
+                        </div>
+
+                        <div class="admin-inputs-divs">
+                            <h4>Porciones:</h4>
+                            <input class="admin-inputs" type="Name" name="porciones">
+                        </div>
+
+                        <div class="admin-inputs-divs">
+                            <h4>Nivel de complejidad:</h4>
+                            <div class="input-group mb-3">
+                                <select name="level_recipe" id="">
+                                    <?php
+                                    $len = count($data);
+                                    for($i=0; $i<$len; $i++){
+                                        echo '<option value="'.$data[$i]
+                                        ['id_recipe_level'].'">'.$data[$i]
+                                        ['recipe_level'].'</option>';
+                                    }
+                        
+                                ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="admin-inputs-divs">
+                            <h4>Categoría:</h4>
+                            <div class="input-group mb-3 ms-4">
+                                <select name="category" id="">
+                                    <?php
+                                    $len = count($data);
+                                    for($i=0; $i<$len; $i++){
+                                        echo '<option value="'.$data[$i]
+                                        ['id_recipe_category'].'">'.$data[$i]
+                                        ['recipe_category'].'</option>';
+                                    }
+                        
+                                ?>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="admin-inputs-divs">
+                            <h4>Ocasión:</h4>
+                            <div class="input-group mb-3 ms-4">
+                                <select name="occasion" id="">
+                                    <?php
+                                    $len = count($data);
+                                    for($i=0; $i<$len; $i++){
+                                        echo '<option value="'.$data[$i]
+                                        ['id_recipe_occasion'].'">'.$data[$i]
+                                        ['recipe_occasion'].'</option>';
+                                    }
+
+                                ?>
+
+                                </select>
+                            </div>
+                        </div>
                 </div>
 
                 <div class="col-md prueba-r">
                     <div class="admin-inputs-divs">
                         <h4>Descripción:</h4>
-                        <input class="admin-inputs-h" type="Name">
+                        <input class="admin-inputs-h" type="Name" name="desciption">
                     </div>
-                    <div class="admin-inputs-divs">
+
+
+                    <p class="admin-inputs-divs">Ingredients</p>        
+                    <div id="ingredients">
+                    </div>    
+                    <button type="button" id="add-ingredient">Add ingredient</button>
+                    <br>
+                    <input type="submit" value="SUBMIT">
+                   <!--  <div class="admin-inputs-divs">
                         <h4>ingredientes:</h4>
-                        <input class="admin-inputs-h" type="Name">
+                        <div id="ingredients">
+                        </div>
+                        <button type="button" id="add-ingredient">Add ingredient</button>
+                        <br>
+                        <input type="submit" value="SUBMIT">
                     </div>
+
                     <div class="admin-inputs-divs">
                         <h4>Instrucciones:</h4>
                         <input class="admin-inputs-h" type="Name">
-                    </div>
-                    <h4 class="">Imagen de la receta:</h4>
+                    </div> -->
+
+                    <br>
+                    <label for="recipe_image">Imagen principal</label>
+                    <img id="preview" src="./imgs/preview.png" width="125" height="125" alt="Preview">
+                    <input id="recipe_image" type="file" name="recipe_image" onchange="readURL(this)">
+                    <br>
+                    <!-- <h4 class="">Imagen de la receta:</h4>
                     <div class="input-group mb-3 admin-inputs-divs">
                         <input type="file" class="form-control" id="inputGroupFile02">
                         <label class="input-group-text" for="inputGroupFile02">Subir</label>
-                    </div>
+                    </div> -->
+
                     <div class=" justify-content-end">
-                        <button class="button2 mt-3 ms-5">Subir receta</button>
+                        <button class="mt-3 ms-5">Subir receta</button>
                     </div>
                 </div>
             </div>
         </div>
+        </form>
+
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    let reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        let preview = document.getElementById('preview').setAttribute('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            document.querySelector('#add-ingredient').addEventListener('click', function () {
+
+                event.preventDefault();
+                let ingredient = document.createElement("div");
+                let id = "ingredient-" + Date.now();
+                ingredient.id = id;
+                document.querySelector('#ingredients').appendChild(ingredient);
+
+                let label = document.createElement("label");
+                label.innerText = "Ingredient";
+                label.setAttribute('for', 'ingredient')
+                document.querySelector('#' + id).appendChild(label);
+
+                let input = document.createElement("input");
+                input.type = "text";
+                input.setAttribute('name', 'ingredients[]');
+                document.querySelector('#' + id).appendChild(input);
+
+                let btn = document.createElement("button");
+                btn.innerText = "remove";
+                btn.addEventListener("click", function () {
+                    document.querySelector('#' + id).remove();
+                });
+                document.querySelector('#' + id).appendChild(btn);
+
+            });
+
+        </script>
     </section>
 
     <section class="admin-page">
-        <!-- <nav class="d-flex justify-content-center"> 
+        <nav class="d-flex justify-content-center"> 
             <div class="d-flex justify-content-center mt-5">
                 <h2 class="">Recetas subidas</h2>
-            </div>-->
+            </div>
 
         <div class="container mt-sect">
             <div class="mb-1">

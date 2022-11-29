@@ -114,7 +114,7 @@ require 'db.php';
                             <div class='card cardss' style='width: 18rem;'>
                                 <img src='./imgs/".$recipe["recipe_image"]."' class='card-img-top mt-3 p-2' alt='".$recipe["recipe_name"]."'>
                                 <div class='card-body'>
-                                    <a class='card-title pointer text-decoration-none text-center d-block category text-truncate' href='./detalle.html'>".$recipe["recipe_name"]."</a>
+                                    <a class='card-title pointer text-decoration-none text-center d-block category text-truncate' href='./detalle.php'>".$recipe["recipe_name"]."</a>
                                     <p class='card-text text-center mt-3'>
                                         <img src='./imgs/like.png' alt='like' style='width:2em;'>
                                     </p>

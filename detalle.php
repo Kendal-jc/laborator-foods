@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <!--fronts.css-->
-    <link rel="stylesheet" href="./css/front.css">
+    <link rel="stylesheet" href="./css/Components/front.css">
     <link rel="stylesheet" href="./css/components.css">
     <link rel="stylesheet" href="./css/frontsprincipa.css">
     <link rel="stylesheet" href="./css/style.css">
