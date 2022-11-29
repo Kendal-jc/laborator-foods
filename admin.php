@@ -1,6 +1,8 @@
 <?php
     require 'db.php';
-    $data = $database->select("tb_recipe_category", "*");
+    $data = $database->select("tb_recipe_category","*");
+    $data1 = $database->select("tb_recipe_levels","*");
+    $data2 = $database->select("tb_recipe_ocassions","*");
 ?>
 
 <!DOCTYPE html>
@@ -71,10 +73,10 @@
                             <div class="input-group mb-3">
                                 <select name="recipe_level" id="">
                                     <?php
-                                    $len = count($data);
+                                    $len = count($data1);
                                     for($i=0; $i<$len; $i++){
-                                        echo '<option value="'.$data[$i]
-                                        ['id_recipe_level'].'">'.$data[$i]
+                                        echo '<option value="'.$data1[$i]
+                                        ['id_recipe_level'].'">'.$data1[$i]
                                         ['recipe_level'].'</option>';
                                     }                    
                                 ?>
@@ -101,13 +103,13 @@
                         <div class="admin-inputs-divs">
                             <h4>Ocasión:</h4>
                             <div class="input-group mb-3 ms-4">
-                                <select name="occasions" id="">
+                                <select name="occasion" id="">
                                     <?php
-                                    $len = count($data);
+                                    $len = count($data2);
                                     for($i=0; $i<$len; $i++){
-                                        echo '<option value="'.$data[$i]
-                                        ['id_recipe_occasion'].'">'.$data[$i]
-                                        ['recipe_occasion'].'</option>';
+                                        echo '<option value="'.$data2[$i]
+                                        ['id_recipe_ocassion'].'">'.$data2[$i]
+                                        ['recipe_ocassion'].'</option>';
                                     }
                                 ?>
 
