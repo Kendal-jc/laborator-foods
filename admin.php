@@ -69,15 +69,14 @@
                         <div class="admin-inputs-divs">
                             <h4>Nivel de complejidad:</h4>
                             <div class="input-group mb-3">
-                                <select name="level_recipe" id="">
+                                <select name="recipe_level" id="">
                                     <?php
                                     $len = count($data);
                                     for($i=0; $i<$len; $i++){
                                         echo '<option value="'.$data[$i]
                                         ['id_recipe_level'].'">'.$data[$i]
                                         ['recipe_level'].'</option>';
-                                    }
-                        
+                                    }                    
                                 ?>
                                 </select>
                             </div>
@@ -93,10 +92,8 @@
                                         echo '<option value="'.$data[$i]
                                         ['id_recipe_category'].'">'.$data[$i]
                                         ['recipe_category'].'</option>';
-                                    }
-                        
+                                    }                       
                                 ?>
-
                                 </select>
                             </div>
                         </div>
@@ -104,7 +101,7 @@
                         <div class="admin-inputs-divs">
                             <h4>Ocasión:</h4>
                             <div class="input-group mb-3 ms-4">
-                                <select name="occasion" id="">
+                                <select name="occasions" id="">
                                     <?php
                                     $len = count($data);
                                     for($i=0; $i<$len; $i++){
@@ -112,7 +109,6 @@
                                         ['id_recipe_occasion'].'">'.$data[$i]
                                         ['recipe_occasion'].'</option>';
                                     }
-
                                 ?>
 
                                 </select>
