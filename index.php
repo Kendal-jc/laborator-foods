@@ -1,10 +1,10 @@
 <?php
-       require 'db.php';
+require 'db.php';
 
         $recipes = $database->select("tb_recipes","*",[
             'LIMIT' =>11
         ]);
-  
+
 ?>
 
 <!DOCTYPE html>
