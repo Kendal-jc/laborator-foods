@@ -122,7 +122,7 @@
     <div class="container margin-tp">
         <div class="mb-1">
             <div class="food-type-limit mt-1 header-limit">
-                <h2 class="mt-3 ms-3 float-right title-lg margin-t">Top 10 en recetas</h2>
+                <h2 class="mt-3 ms-3 float-right title-lg margin-t">Recetas relacionadas</h2>
             </div>
         </div>
         <div class="row gap-3 d-flex justify-content-center" style="padding-top: 5rem;">

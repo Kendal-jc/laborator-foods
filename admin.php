@@ -124,6 +124,11 @@
                         <input class="admin-inputs-h" type="Name" name="desciption">
                     </div>
 
+                     <br>
+                    <label for="recipe_image">Imagen principal</label>
+                    <img id="preview" src="./imgs/preview.png" width="125" height="125" alt="Preview">
+                    <input id="recipe_image" type="file" name="recipe_image" onchange="readURL(this)">
+                    <br>
 
                     <p class="admin-inputs-divs">Ingredients</p>        
                     <div id="ingredients">
@@ -145,20 +150,16 @@
                         <input class="admin-inputs-h" type="Name">
                     </div> -->
 
-                    <br>
-                    <label for="recipe_image">Imagen principal</label>
-                    <img id="preview" src="./imgs/preview.png" width="125" height="125" alt="Preview">
-                    <input id="recipe_image" type="file" name="recipe_image" onchange="readURL(this)">
-                    <br>
+                   
                     <!-- <h4 class="">Imagen de la receta:</h4>
                     <div class="input-group mb-3 admin-inputs-divs">
                         <input type="file" class="form-control" id="inputGroupFile02">
                         <label class="input-group-text" for="inputGroupFile02">Subir</label>
                     </div> -->
 
-                    <div class=" justify-content-end">
+                    <!-- <div class=" justify-content-end">
                         <button class="mt-3 ms-5">Subir receta</button>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -208,18 +209,14 @@
     </section>
 
     <section class="admin-page">
-        <nav class="d-flex justify-content-center"> 
-            <div class="d-flex justify-content-center mt-5">
-                <h2 class="">Recetas subidas</h2>
-            </div>
-
         <div class="container mt-sect">
-            <div class="mb-1">
+            
+             <div class="mb-1">
                 <div class="food-type-limit mt-1 header-limit">
                     <h2 class="mt-3 ms-3 float-right title-lg">Recetas subidas</h2>
                 </div>
             </div>
-            <div class="row gap-3 mt-3">
+          <!--   <div class="row gap-3 mt-3">
                 <div class="col">
                     <div class="card" style="width: 18rem;">
                         <img src="./imgs/iimg-1.jpg" class="card-img-top mt-3 p-2" alt="comida">
@@ -292,7 +289,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
+                
 
                 <div class="container mt-sect">
                     <div class="mb-1">
