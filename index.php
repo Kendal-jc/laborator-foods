@@ -80,11 +80,11 @@ require 'db.php';
         </div>
         <ul class="nav mt-auto d-inline-flex display-3 mb-md-1">
             <li>
-                <a class="btn btn-primary btnn" href="indexC.php">Categorias</a>
+                <a class="btn btn-primary btnn" href="category.php">Categorias</a>
             </li>
 
             <li>
-                <a class="btn btn-primary btnn" href="indexO.php">Ocasiones</a>
+                <a class="btn btn-primary btnn" href="occasions.php">Ocasiones</a>
             <li>
                 <a class="btn btn-primary btnn" href="indexO.php">Dificultad</a>
             </li>
@@ -119,8 +119,8 @@ require 'db.php';
                                         <img src='./imgs/like.png' alt='like' style='width:2em;'>
                                     </p>
                                     <div class='row'>
-                                        <div class='col-7 author-fd text-truncate'>".utf8_decode($recipe["recipe_time"])."</div>
-                                        <div class='col-5 ps-5 authorleft'>".utf8_decode($recipe["recipe_level"])."</div>
+                                        <div class='col-7 author-fd text-truncate'>".utf8_decode($recipe["prep_time"])."</div>
+                                        <div class='col-5 ps-5 authorleft'>".utf8_decode($recipe["id_recipe_level"])."</div>
                                     </div>
                                 </div>
                             </div>

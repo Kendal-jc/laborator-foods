@@ -5,7 +5,7 @@
 
     // Reference: https://medoo.in/api/insert
     $database->insert("tb_users",[
-        "user_name"=> "user01",
-        "password"=> $pass
+        "user_name"=> "user011",
+        "password"=> "root1"
     ]);
 ?>

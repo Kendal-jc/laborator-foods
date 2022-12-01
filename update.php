@@ -61,8 +61,8 @@ require 'db.php';
 
     $database->update("tb_recipes", [
         "recipe_name"=>$_POST["recipe"],
-        "id_recipe_category"=>$_POST["category"],
-        "recipe_time"=>$_POST["time"],
+        "id_recipe_category"=>$_POST["recipe_category"],
+        "prep_time"=>$_POST["time"],
         "recipe_image"=>$img,
         "recipe_ingredients"=> $ingredients
     ],[
