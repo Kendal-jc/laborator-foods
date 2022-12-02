@@ -33,6 +33,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style-recipes.css">
+    <link rel="stylesheet" href="./css/Components/front.css">
+    <link rel="stylesheet" href="./css/frontsprincipa.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
@@ -42,12 +45,14 @@
 
     <table>
         <tr>
-            <td>Recipe image</td>
-            <td>Recipe name</td>
-            <td>Recipe likes</td>
-            <td>Recipe Category</td>
-            <td>Prep. time</td>
-            <td>Options</td>
+          
+        </td><td>Recipe image</td></td>
+                <td>Recipe name</td>
+                <td>Recipe <br>likes</td>
+                <td>Recipe <br>Category</td>
+                <td>Prep. <br> time</td>
+               <td>Options</td>
+           
         </tr>
         <tr>
 
@@ -58,13 +63,13 @@
 
             for($i=0; $i<$len; $i++){
                 echo "<tr>";
-                echo "<td><img src='./imgs/".$data[$i]["recipe_image"]."'class='thumb img-25'></td>";
+                echo "<td><img src='./imgs/".$data[$i]["recipe_image"]."'class='thumb img-25'>";
                 echo "<td>".$data[$i]["recipe_name"]."</td>";
                 echo "<td>".$data[$i]["recipe_likes"]."</td>";
                 echo "<td>".$data[$i]["recipe_category"]."</td>";
-                echo "<td>".$data[$i]["recipe_time"]."</td>";
-                echo "<td><a href='edit.php?id=".$data[$i]["id_recipe"]."'>Edit</a>
-                <a href='delete.php?id=".$data[$i]["id_recipe"]."'>Delete</a> <a href='likes.php?id=".$data[$i]["id_recipe"]."'>Likes</a></td>";
+                echo "<td>".$data[$i]["prep_time"]."</td>";
+                echo "<td>  <a href='edit.php?id=".$data[$i]["id_recipe"]."'>Edit</a>
+                <a href='delete.php?id=".$data[$i]["id_recipe"]."'>Delete</a> <a href='likes.php?id=".$data[$i]["id_recipe"]."'>Likes</a></td> ";
                 echo "</tr>";
             }
 

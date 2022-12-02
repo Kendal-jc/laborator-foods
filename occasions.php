@@ -1,3 +1,48 @@
+<?php
+require 'db.php';
+
+if($_GET){
+
+    $column = "";
+    $value = 0;
+    $title = "";
+    $subtitle = $_GET["name"];
+
+    if(isset($_GET["level"])){
+        $column = "tb_recipes.id_recipe_level";
+        $value = $_GET["level"];
+        $title = "Recipes By Skill Level";
+    }else if(isset($_GET["category"])){
+        $column = "tb_recipes.id_recipe_category";
+        $value = $_GET["category"];
+        $title = "Recipes By Category";
+    }else if(isset($_GET["ocassion"])){
+        $column = "tb_recipes.id_recipe_ocassion";
+        $value = $_GET["ocassion"];
+        $title = "Recipes By Occasion";
+    }
+
+    $results = $database->select("tb_recipes",[
+        "[><]tb_recipe_category"=>["id_recipe_category" => "id_recipe_category"],
+        "[><]tb_recipe_levels"=>["id_recipe_level" => "id_recipe_level"],
+        "[><]tb_recipe_ocassions"=>["id_recipe_ocassion" => "id_recipe_ocassion"],
+    ],[
+        "tb_recipes.id_recipe",
+        "tb_recipes.recipe_name",
+        "tb_recipes.prep_time",
+        "tb_recipes.recipe_image",
+        "tb_recipes.recipe_likes",
+        "tb_recipes.id_recipe_level",
+    ],[
+        $column => $value
+    ]);
+    
+}
+
+$levels = $database->select("tb_recipe_levels","*");
+$categories = $database->select("tb_recipe_category","*");
+$ocassions = $database->select("tb_recipe_ocassions","*");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,16 +99,21 @@
                 </div>
             </div>
         </header>
-        <a href="./foodscode.html"> <img class="back-icon" src="./imgs/atras.png" alt="atras"> </a>
+        <a href="./index.php"> <img class="back-icon" src="./imgs/atras.png" alt="atras"> </a>
 
-        <div class="container-fluid d-flex justify-content-center">
-            <h2 class="mt-3 title-xxlg">Ocasiones</h2>
+        <div class="row gap-3 d-flex justify-content-center" style="padding-top: 5rem;">
+            <div class="container-fluid d-flex justify-content-center">
+                <h2 class="mt-3 title-xxlg">Ocasiones</h2>
+            </div>
+            
+                <?php 
+                    foreach ($ocassions as $ocassion){
+                        echo "<li class='col mt-4 d-flex justify-content-center'><a class='card cardss style='width: 18rem;' href='recipe_p.php?ocassion=".$ocassion['id_recipe_ocassion']."&name=".$ocassion['recipe_ocassion']."'>".$ocassion['recipe_ocassion']."</a></li>";
+                    }
+                ?>
+
         </div>
-
-        <div class="container margin-tp">
-
-            <div class="row gap-3 mt-3 d-flex justify-content-center">
-
+<!--
                 <div class="col mt-4 d-flex justify-content-center">
                     <div class="card cardss" style="width: 18rem;">
                         <img src="./imgs/iimg-1.jpg" class="card-img-top mt-3 p-2" alt="Todas las categorias">
@@ -161,7 +211,7 @@
 
         </div>
 
-
+-->
 
         <!-- contact us -->
         <footer class="container-fluid mt-5 text-grn p-0 m-0">

@@ -101,17 +101,35 @@ $ocassions = $database->select("tb_recipe_ocassions","*");
         </header>
         <a href="./index.php"> <img class="back-icon" src="./imgs/atras.png" alt="atras"> </a>
 
-  <div class="row gap-3 d-flex justify-content-center" style="padding-top: 5rem;">
+       
         <div class="container-fluid d-flex justify-content-center">
-            <h2 class="mt-3 title-xxlg">Almuerzos</h2>
-        </div>
-        <?php 
-                foreach ($categories as $category){
-                    echo "<div class='col mt-4 d-flex justify-content-center'><a class='card cardss style='width: 18rem;' href='recipe _p.php?category=".$category['id_recipe_category']."&name=".$category['recipe_category']."'>".$category['recipe_category']."</a></div>";
-                }
-            ?>
+              <?php
+                //echo "<h3 class='text-center mt-5'><span class='fw-bolder'>".$title."</span></h3>";
 
-</div>
+                    echo "<h5 class='text-center mt-5'><span class='title-lg'>".$subtitle."</span></h5>";
+                ?>
+        </div>
+                <div class="row g-0 mt-3">
+                <?php 
+                    foreach ($results as $recipe){
+                          echo"<div class='col mt-4 d-flex justify-content-center'>
+                            <div class='card cardss' style='width: 18rem;'>
+                                <img src='./imgs/".$recipe["recipe_image"]."' class='card-img-top mt-3 p-2' alt='".$recipe["recipe_name"]."'>
+                                <div class='card-body'>
+                                    <a class='card-title pointer text-decoration-none text-center d-block category text-truncate' href='./detalle.php'>".$recipe["recipe_name"]."</a>
+                                    <p class='card-text text-center mt-3'>
+                                        <img src='./imgs/like.png' alt='like' style='width:2em;'>
+                                    </p>
+                                    <div class='row'>
+                                        <div class='col-7 author-fd text-truncate'>".utf8_decode($recipe["prep_time"])."</div>
+                                        <div class='col-5 ps-5 authorleft'>".utf8_decode($recipe["id_recipe_level"])."</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>";
+                    }
+                ?>
+            </div>
         <!-- contact us -->
         <footer class="container-fluid mt-5 text-grn p-0 m-0">
             <div class="container-footerr">
