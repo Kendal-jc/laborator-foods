@@ -44,13 +44,13 @@
 
             if(empty($errors)){
                 $img = "recipe-upload-".generateRandomString().".".$file_ext;//genera el nombre
-                move_uploaded_file($file_tmp, "images/".$img);
+                move_uploaded_file($file_tmp, "imgs/".$img);
 
 
                 $database->insert("tb_recipes", [
-                    "recipe_name" => $_POST["recipe"],
+                    "recipe_name" => $_POST["recipe_name"],
                     "id_recipe_category" => $_POST["category"],
-                    "recipe_time" => $_POST["time"],
+                    "prep_time" => $_POST["prep_time"],
                     "recipe_image" => $img,
                     "recipe_ingredients" => $ingredients
                 ]);

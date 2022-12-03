@@ -47,11 +47,11 @@
 
         </select>
         <label for="time">Prep. time</label>
-        <input type="text" name="time" value="<?php echo $data[0]["recipe_time"]; ?>">
+        <input type="text" name="time" value="<?php echo $data[0]["prep_time"]; ?>">
 
         <br>
         <label for="recipe_image">Imagen principal</label>
-        <img id="preview" src="./images/<?php echo $data[0]["recipe_image"]; ?>" width="125" height="125" alt="Preview">
+        <img id="preview" src="./imgs/<?php echo $data[0]["recipe_image"]; ?>" width="125" height="125" alt="Preview">
         <input id="recipe_image" type="file" name="recipe_image" onchange="readURL(this)">
         <br>
 

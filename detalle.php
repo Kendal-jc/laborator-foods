@@ -1,3 +1,48 @@
+<?php
+    require 'db.php';
+
+    $levels = $database->select("tb_recipe_levels","*");
+    $categories = $database->select("tb_recipe_category","*");
+    $ocassions = $database->select("tb_recipe_ocassions","*");
+
+    //featured recipes
+    $featured_recipes = $database->select("tb_recipes","*",[
+        "recipe_is_featured" => 1
+    ]);
+
+    //recipe
+    $recipe = $database->select("tb_recipes",[
+        "[><]tb_recipe_category"=>["id_recipe_category" => "id_recipe_category"],
+        "[><]tb_recipe_levels"=>["id_recipe_level" => "id_recipe_level"],
+        "[><]tb_recipe_ocassions"=>["id_recipe_ocassion" => "id_recipe_ocassion"],
+    ],[
+        "tb_recipes.id_recipe",
+        "tb_recipes.id_recipe_category",
+        "tb_recipes.recipe_name",
+        "tb_recipes.recipe_time",
+        "tb_recipes.recipe_total_time",
+        "tb_recipes.recipe_yields",
+        "tb_recipes.recipe_image",
+        "tb_recipes.recipe_description",
+        "tb_recipes.recipe_likes",
+        "tb_recipes.recipe_ingredients",
+        "tb_recipes.recipe_directions",
+        "tb_recipe_category.recipe_category",
+        "tb_recipes.id_recipe_level",
+        "tb_recipes.id_recipe_ocassion",
+        "tb_recipe_levels.recipe_level"
+    ],[
+        "tb_recipes.id_recipe" => $_GET["id_recipe"]
+    ]);
+
+    //related recipes
+    $related_recipes = $database->select("tb_recipes", "*", [
+        "id_recipe_category" => $recipe[0]["id_recipe_category"],
+        "id_recipe_category" => $recipe[0]["id_recipe_category"],
+        'LIMIT' => 4
+    ]);
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,7 +112,7 @@
                                             <li class="times mt-3">30min tiempo total</li>
                                         </ul>
                                     </div>
-
+                        
                                     <div>
                                         <div class="d-flex justify-content-center mt-3">
                                             <h3 class="mx-3 etiqueta food-time">Desayuno</h3>

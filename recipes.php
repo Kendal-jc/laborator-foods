@@ -4,7 +4,7 @@
     session_start();
     if(isset($_SESSION["isLoggedIn"])){
 
-        // $data = $database->select("tb_recipes", "*");
+   
 
     $data= $database->select("tb_recipes",[//inner
         "[>]tb_recipe_category"=>["id_recipe_category" => "id_recipe_category"]//[>] caracter para hacer el join

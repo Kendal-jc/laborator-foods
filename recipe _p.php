@@ -21,11 +21,15 @@ if($_GET){
         $value = $_GET["ocassion"];
         $title = "Recipes By Occasion";
     }
+   /* $results = $database->select("tb_recipes","*" ,
+    [
+        $column => $value
+    ]);*/   
 
     $results = $database->select("tb_recipes",[
         "[><]tb_recipe_category"=>["id_recipe_category" => "id_recipe_category"],
         "[><]tb_recipe_levels"=>["id_recipe_level" => "id_recipe_level"],
-        "[><]tb_recipe_ocassions"=>["id_recipe_ocassion" => "id_recipe_ocassion"],
+        "[><]tb_recipe_ocassions"=>["id_recipe_ocassion" => "id_recipe_ocassion"]
     ],[
         "tb_recipes.id_recipe",
         "tb_recipes.recipe_name",
@@ -36,7 +40,7 @@ if($_GET){
     ],[
         $column => $value
     ]);
-    
+ //   var_dump($results);
 }
 
 $levels = $database->select("tb_recipe_levels","*");

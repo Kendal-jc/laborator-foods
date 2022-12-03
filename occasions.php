@@ -72,8 +72,8 @@ $ocassions = $database->select("tb_recipe_ocassions","*");
 
     <!--Iconos-->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!--fronts.css-->
-    <link rel="stylesheet" href="./css/Components/front.css">
+     <!--fronts.css-->
+     <link rel="stylesheet" href="./css/Components/front.css">
     <link rel="stylesheet" href="./css/frontsprincipa.css">
     <link rel="stylesheet" href="./css/style.css">
 
@@ -101,18 +101,20 @@ $ocassions = $database->select("tb_recipe_ocassions","*");
         </header>
         <a href="./index.php"> <img class="back-icon" src="./imgs/atras.png" alt="atras"> </a>
 
-        <div class="row gap-3 d-flex justify-content-center" style="padding-top: 5rem;">
-            <div class="container-fluid d-flex justify-content-center">
-                <h2 class="mt-3 title-xxlg">Ocasiones</h2>
-            </div>
-            
-                <?php 
-                    foreach ($ocassions as $ocassion){
-                        echo "<li class='col mt-4 d-flex justify-content-center'><a class='card cardss style='width: 18rem;' href='recipe_p.php?ocassion=".$ocassion['id_recipe_ocassion']."&name=".$ocassion['recipe_ocassion']."'>".$ocassion['recipe_ocassion']."</a></li>";
-                    }
-                ?>
+     
 
+
+        <div class="row gap-3 d-flex justify-content-center" style="padding-top: 5rem;">
+        <div class="container-fluid d-flex justify-content-center">
+            <h2 class="mt-3 title-xxlg">Ocasiones</h2>
         </div>
+        <?php 
+                foreach ($ocassions as $ocassion){
+                    echo "<div class='col mt-4 d-flex justify-content-center'><a class='card cardss style='width: 18rem;' href='recipe _p.php?category=".$ocassion['id_recipe_ocassion']."&name=".$ocassion['recipe_ocassion']."'>".$ocassion['recipe_ocassion']."</a></div>";
+                }
+            ?>
+
+</div>
 <!--
                 <div class="col mt-4 d-flex justify-content-center">
                     <div class="card cardss" style="width: 18rem;">

@@ -1,5 +1,6 @@
 <?php
     require 'db.php';
+    
     $data = $database->select("tb_recipe_category","*");
     $data1 = $database->select("tb_recipe_levels","*");
     $data2 = $database->select("tb_recipe_ocassions","*");
@@ -50,17 +51,17 @@
 
                         <div class="admin-inputs-divs">
                             <h4>Tiempo de preparación:</h4>
-                            <input class="admin-inputs" type="Number" name="prep_time">
+                            <input class="admin-inputs" type="" name="prep_time">
                         </div>
 
                         <div class="admin-inputs-divs">
                             <h4>Tiempo de cocción:</h4>
-                            <input class="admin-inputs" type="Number" name="cook_time">
+                            <input class="admin-inputs" type="" name="cook_time">
                         </div>
 
                         <div class="admin-inputs-divs">
                             <h4>Tiempo total:</h4>
-                            <input class="admin-inputs" type="number" name="total_time">
+                            <input class="admin-inputs" type="" name="total_time">
                         </div>
 
                         <div class="admin-inputs-divs">
@@ -138,6 +139,7 @@
                     <input class="mt-5 button" type="submit" value="SUBMIT">
 
                     <script>
+
        function readURL(input) {
             if(input.files && input.files[0]){
                 let reader = new FileReader();
@@ -207,47 +209,6 @@
         </div>
         </form>
 
-        <script>
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    let reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        let preview = document.getElementById('preview').setAttribute('src', e.target.result);
-                    }
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-
-            document.querySelector('#add-ingredient').addEventListener('click', function () {
-
-                event.preventDefault();
-                let ingredient = document.createElement("div");
-                let id = "ingredient-" + Date.now();
-                ingredient.id = id;
-                document.querySelector('#ingredients').appendChild(ingredient);
-
-                let label = document.createElement("label");
-                label.innerText = "Ingredient";
-                label.setAttribute('for', 'ingredient')
-                document.querySelector('#' + id).appendChild(label);
-
-                let input = document.createElement("input");
-                input.type = "text";
-                input.setAttribute('name', 'ingredients[]');
-                document.querySelector('#' + id).appendChild(input);
-
-                let btn = document.createElement("button");
-                btn.innerText = "remove";
-                btn.addEventListener("click", function () {
-                    document.querySelector('#' + id).remove();
-                });
-                document.querySelector('#' + id).appendChild(btn);
-
-            });
-
-        </script>
     </section>
 
     <section class="admin-page">
