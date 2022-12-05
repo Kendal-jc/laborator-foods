@@ -28,7 +28,7 @@
         <label for="recipe">Recipe</label>
         <input type="text" name="recipe" value="<?php echo $data[0]["recipe_name"]; ?>">
         <label for="category">Category</label>
-        <select name="category" id="">
+        <select name="recipe_category" id="">
             <?php
                 $len = count($categories);
                 for($i=0; $i<$len; $i++){

@@ -7,7 +7,7 @@
             // [required]
             'type' => 'mysql',
             'host' => 'localhost',
-            'database' => 'recipess',
+            'database' => 'recipes',
             'username' => 'root',
             'password' => ''
         ]);

@@ -88,14 +88,6 @@ require 'db.php';
             <li>
                 <a class="btn btn-primary btnn" href="indexO.php">Dificultad</a>
             </li>
-
-            <li>
-                <a class="btn btn-primary btnn" href="indexC.php">Bebidas</a>
-            </li>
-
-            <li>
-                <a class="btn btn-primary btnn" href="indexC.php">Sopas</a>
-            </li>
         </ul>
     </div>
 

@@ -110,7 +110,18 @@ $ocassions = $database->select("tb_recipe_ocassions","*");
         </div>
         <?php 
                 foreach ($ocassions as $ocassion){
-                    echo "<div class='col mt-4 d-flex justify-content-center'><a class='card cardss style='width: 18rem;' href='recipe _p.php?category=".$ocassion['id_recipe_ocassion']."&name=".$ocassion['recipe_ocassion']."'>".$ocassion['recipe_ocassion']."</a></div>";
+                    //echo "<div class='col mt-4 d-flex justify-content-center'><a class='card cardss style='width: 18rem;' href='recipe _p.php?category=".$ocassion['id_recipe_ocassion']."&name=".$ocassion['recipe_ocassion']."'>".$ocassion['recipe_ocassion']."</a></div>";
+                    echo"<div class='col mt-4 d-flex justify-content-center'>
+                    <div class='card cardss' style='width: 18rem;'>
+                        <img src='./imgs/".trim($ocassion["recipe_ocassion"]).".jpg' class='card-img-top mt-3 p-2'>
+                        <div class='card-body'>
+                            <a class='card-title pointer text-decoration-none text-center d-block ocassion text-truncate' href='recipe _p.php?ocassion=".$ocassion['id_recipe_ocassion']."&name=".$ocassion['recipe_ocassion']."'>".$ocassion['recipe_ocassion']."</a>
+                            <p class='card-text text-center mt-3'>
+                                <img src='./imgs/like.png' alt='like' style='width:2em;'>
+                            </p>
+                        </div>
+                    </div>
+                </div>";
                 }
             ?>
 

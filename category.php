@@ -103,11 +103,19 @@ $ocassions = $database->select("tb_recipe_ocassions","*");
 
   <div class="row gap-3 d-flex justify-content-center" style="padding-top: 5rem;">
         <div class="container-fluid d-flex justify-content-center">
-            <h2 class="mt-3 title-xxlg">Almuerzos</h2>
+            <h2 class="mt-3 title-xxlg">Category</h2>
         </div>
         <?php 
                 foreach ($categories as $category){
-                    echo "<div class='col mt-4 d-flex justify-content-center'><a class='card cardss style='width: 18rem;' href='recipe _p.php?category=".$category['id_recipe_category']."&name=".$category['recipe_category']."'>".$category['recipe_category']."</a></div>";
+                    // echo "<div class='col mt-4 d-flex justify-content-center'><a class='card cardss card-title pointer text-decoration-none text-center d-block category text-truncate' 6style='width: 18rem;' href='recipe _p.php?category=".$category['id_recipe_category']."&name=".$category['recipe_category']."'>".$category['recipe_category']."</a></div>";-->
+                    echo"<div class='col mt-4 d-flex justify-content-center'>
+                    <div class='card cardss' style='width: 18rem;'>
+                        <img src='./imgs/".utf8_decode($category["recipe_category"]).".jpg' class='card-img-top mt-3 p-2'>
+                        <div class='card-body'>
+                            <a class='card-title pointer text-decoration-none text-center d-block category text-truncate' href='recipe _p.php?category=".$category['id_recipe_category']."&name=".$category['recipe_category']."'>".$category['recipe_category']."</a>
+                        </div>
+                    </div>
+                </div>";
                 }
             ?>
 

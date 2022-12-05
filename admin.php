@@ -216,10 +216,19 @@
             
     <div class="mb-1">
     <div class="food-type-limit mt-1 header-limit">
-            <div class="flip">
+            <div>
                 <a href="recipes.php" target="_blank">
-                    <div class="front mt-3 ms-3 float-right title-md">Recetas</div>
-                    <div class="back mt-3 ms-3 float-right title-lg">Subidas</div>
+                   <button>Recetas subidas</button>
+                </a>
+            </div>
+        </div>
+    </div>
+        
+    <div class="mb-1">
+    <div class="food-type-limit mt-1 header-limit">
+            <div>
+                <a href="recipes.php" target="_blank">
+                   <button>Usuarios registrados</button>
                 </a>
             </div>
         </div>

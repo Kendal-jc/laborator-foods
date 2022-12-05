@@ -51,8 +51,14 @@
                     "recipe_name" => $_POST["recipe_name"],
                     "id_recipe_category" => $_POST["category"],
                     "prep_time" => $_POST["prep_time"],
+                    //"cook_time" => $_POST["cook_time"],
+                   // "total_time" => $_POST["total_time"],
+                    //"id_recipe_level" => $_POST["recipe_level"],
+                    //"id_recipe_ocassion" => $_POST["ocassion"],
+                   // "recipe_description" => $_POST["description"],
                     "recipe_image" => $img,
-                    "recipe_ingredients" => $ingredients
+                   // "recipe_ingredients" => $ingredients
+                   // "id_recipe_ocassion" => $ocassion
                 ]);
                 header("location: recipes.php");
 
