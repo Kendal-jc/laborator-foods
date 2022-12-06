@@ -86,7 +86,7 @@ require 'db.php';
             <li>
                 <a class="btn btn-primary btnn" href="occasions.php">Ocasiones</a>
             <li>
-                <a class="btn btn-primary btnn" href="indexO.php">Dificultad</a>
+                <a class="btn btn-primary btnn" href="level.php">Dificultad</a>
             </li>
         </ul>
     </div>

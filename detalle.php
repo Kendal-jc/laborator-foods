@@ -5,11 +5,7 @@
     $categories = $database->select("tb_recipe_category","*");
     $ocassions = $database->select("tb_recipe_ocassions","*");
 
-    //featured recipes
-    $featured_recipes = $database->select("tb_recipes","*",[
-        "recipe_is_featured" => 1
-    ]);
-
+ 
     //recipe
     $recipe = $database->select("tb_recipes",[
         "[><]tb_recipe_category"=>["id_recipe_category" => "id_recipe_category"],
@@ -19,14 +15,14 @@
         "tb_recipes.id_recipe",
         "tb_recipes.id_recipe_category",
         "tb_recipes.recipe_name",
-        "tb_recipes.recipe_time",
-        "tb_recipes.recipe_total_time",
-        "tb_recipes.recipe_yields",
+        "tb_recipes.prep_time",
+       // "tb_recipes.recipe_total_time",
+       // "tb_recipes.recipe_yields",
         "tb_recipes.recipe_image",
         "tb_recipes.recipe_description",
         "tb_recipes.recipe_likes",
         "tb_recipes.recipe_ingredients",
-        "tb_recipes.recipe_directions",
+        //"tb_recipes.recipe_directions",
         "tb_recipe_category.recipe_category",
         "tb_recipes.id_recipe_level",
         "tb_recipes.id_recipe_ocassion",
@@ -90,167 +86,74 @@
             </div>
         </header>
         <a href="./foodscode.html"> <img class="back-icon" src="./imgs/atras.png" alt="atras"> </a>
+</section>
 
-        <nav class="details-limit">
-            <div class="row mt-5">
-                <div class="col-md d-flex justify-content-start align-items-center me-4">
-                    <div class="">
-                        <div>
-                            <div class="d-flex justify-content-center"><img class="w-75" src="./imgs/O_m.jpg"
-                                    alt="img-receta">
-                            </div>
-                            <div class="d-flex mt-4 justify-content-center">
-                                <div>
-                                    <div class="d-flex justify-content-center">
-                                        <h1 class="title-ingredients">Gallo pinto</h1>
-                                    </div>
+    
+            <div class="row g-0 mt-3">
+                <ul class="">
+                    <li class=""><span class='title-md'>Cook time:</span> <?php echo $recipe[0]["prep_time"]; ?></li>
+                    <li class=""><span class='fw-bolder'>Skill level:</span> <?php echo $recipe[0]["recipe_level"]; ?></li>
+                </ul>
+                <a type="button" href="likes.php?id_recipe=<?php echo $recipe[0]["id_recipe"]; ?>" class="btn btn-dark position-relative mt-3 mx-auto likes">
+                    Likes <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <?php echo $recipe[0]["recipe_likes"]; ?>
+                        <span class="visually-hidden">likes</span>
+                    </span>
+                </a>
+            </div>
+            
+            <div class="row g-0 mt-3">
+                <p class="p-3"><?php echo $recipe[0]["recipe_description"]; ?></p>
+            </div>
 
-                                    <div class="mt-3 mb-4">
-                                        <ul class="text-aligns-rt">
-                                            <li class="times">10min de cocción</li>
-                                            <li class="times">20min de preparación</li>
-                                            <li class="times mt-3">30min tiempo total</li>
-                                        </ul>
-                                    </div>
+            <div class="row g-0 mt-1">
+                <div class="col-6 p-3">
+                    <h4>Ingredients</h4>
+                    <ul>
+                        <?php 
+                            $ingredients = [];
+                            $ingredients = explode(",", $recipe[0]["recipe_ingredients"]);
                         
-                                    <div>
-                                        <div class="d-flex justify-content-center mt-3">
-                                            <h3 class="mx-3 etiqueta food-time">Desayuno</h3>
-                                            <h3 class="mx-3 etiqueta level">Fácil</h3>
-                                            <h3 class="mx-3 etiqueta likes">20 likes</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            foreach ($ingredients as $key => $ingredient){
+                                if($key != array_key_last($ingredients)){
+                                    echo "<li>".$ingredient."</li>";
+                                }
+                            }
+
+                        ?>
+                    </ul>
+
+                    <?php 
+                        echo "<a href='pdf.php?id_recipe=".$recipe[0]["id_recipe"]."' target='blank' class='mt-3 btn btn-outline-secondary'>Download this recipe</a>";
+                    ?>
+
                 </div>
-
-                <div class="col-md d-flex justify-content-end me-4">
-                    <div>
-                        <div class="text-it">
-                            <h1 class="title-ingredients">Ingredientes</h1>
-                            <p class="ingredients mt-3">
-                                3 cucharadas de aceite de canola <br>
-                                1/4 cebolla picada<br>
-                                1/2 pimiento verde (o rojo) en cuadraditos<br>
-                                3 tazas de frijoles rojos o negros, cocidos<br>
-                                3 tazas de arroz blanco, cocido<br>
-                                Sal<br>
-                                2 cucharadas de culantro picado</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </section>
-
-    <section class="container-fluid ">
-        <h2 class="title-ingredients d-flex justify-content-center" style="margin-top: 19rem;">Preparación</h2>
-        <div class="row d-flex justify-content-center ">
-            <p class="ingredients text-d pad">1-Calienta el aceite en una sartén grande y fríe la cebolla y el pimiento
-                hasta que estén suaves.
-                <br>
-                2-Agrega los frijoles, bien escurridos, y fríe de tres a cinco minutos. Agrega un poco del caldo
-                de cocción, si ves que están quedando muy secos.<br>
-                3-Incorpora el arroz y sigue friendo unos tres minutos más agregando un poco más de caldo de
-                frijoles para que el gallo pinto no quede muy seco y finalmente adorna con culantro picado.
-            </p>
-        </div>
-
-    </section>
-
-
-
-
-
-    <div class="container margin-tp">
-        <div class="mb-1">
-            <div class="food-type-limit mt-1 header-limit">
-                <h2 class="mt-3 ms-3 float-right title-lg margin-t">Recetas relacionadas</h2>
-            </div>
-        </div>
-        <div class="row gap-3 d-flex justify-content-center" style="padding-top: 5rem;">
-
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-1.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            Sancocho</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-
-                        <!-- <p class="card-text text-center mt-3">corazón</p> -->
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
+       
+            <div class="row g-0 mt-1">
+                <h4 class='fw-bolder ps-3'>Related recipes</h4>
             </div>
 
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-2.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            ENSALADA DE ATÚN</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-3.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            BLT IN A BOWL</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col mt-4 d-flex justify-content-center">
-                <div class="card cardss" style="width: 18rem;">
-                    <img src="./imgs/iimg-4.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            DESAYUNO INGLÉS</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+         
+            
         </div>
     </div>
 
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- contact us -->
     <footer class="container-fluid mt-5 text-grn p-0 m-0">

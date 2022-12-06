@@ -7,20 +7,22 @@
    
 
     $data= $database->select("tb_recipes",[//inner
-        "[>]tb_recipe_category"=>["id_recipe_category" => "id_recipe_category"]//[>] caracter para hacer el join
-        //"[>]tb_recipe_ocassions"=>["id_recipe_ocassion" => "id_recipe_ocassion"]//[>] caracter para hacer el join
+        "[>]tb_recipe_category"=>["id_recipe_category" => "id_recipe_category"],//[>] caracter para hacer el join
+        "[>]tb_recipe_ocassions"=>["id_recipe_ocassion" => "id_recipe_ocassion"],//[>] caracter para hacer el join
+        "[>]tb_recipe_levels"=>["id_recipe_level" => "id_recipe_level"],//[>] caracter para hacer el join
+
     ],[
         "tb_recipes.id_recipe",
         "tb_recipes.recipe_name",
         "tb_recipes.prep_time",
-        //"tb_recipes.cook_time",
+      "tb_recipes.cook_time",
         //"tb_recipes.total_time",
-       // "tb_recipes.recipe_ingredients",
-       // "tb_recipes.recipe_description",
+        "tb_recipes.recipe_ingredients",
+      "tb_recipes.recipe_description",
         "tb_recipes.recipe_image",
         "tb_recipes.recipe_likes",
-       // "tb_recipes_ocassions.recipe_ocassion",
-        //"tb_recipe_levels.recipe_level",
+       "tb_recipe_ocassions.recipe_ocassion",
+        "tb_recipe_levels.recipe_level",
         "tb_recipe_category.recipe_category"
     ]);
 
@@ -59,8 +61,8 @@
 </td> <td>Recipe Category</td>
 </td> <td>Recipe Ocassion</td>
 </td><td>Prep.time</td>
-</td><td>cook.time</td>
-</td> <td>total.time</td>
+<!--</td><td>cook.time</td>
+</td> <td>total.time</td>-->
 </td> <td>Ingredients</td>
 </td> <td>Description</td>
                 <!---<td>Level</td>-->
@@ -80,12 +82,12 @@
                 echo "<td>".$data[$i]["recipe_likes"]."</td>";
                 echo "<td>".$data[$i]["recipe_category"]."</td>";
                 echo "<td>".$data[$i]["prep_time"]."</td>";
-             //  echo "<td>".$data[$i]["cook_time"]."</td>";
+            echo "<td>".$data[$i]["cook_time"]."</td>";
              //  echo "<td>".$data[$i]["total_time"]."</td>";
-             //  echo "<td>".$data[$i]["recipe_ingredients"]."</td>";
-              //  echo "<td>".$data[$i]["recipe_description"]."</td>";
-              //  echo "<td>".$data[$i]["recipe_ocassion"]."</td>";
-                //echo "<td>".$data[$i]["recipe_level"]."</td>";
+             echo "<td>".$data[$i]["recipe_ingredients"]."</td>";
+              echo "<td>".$data[$i]["recipe_description"]."</td>";
+             echo "<td>".$data[$i]["recipe_ocassion"]."</td>";
+            echo "<td>".$data[$i]["recipe_level"]."</td>";
                 echo "<td>  <a href='edit.php?id=".$data[$i]["id_recipe"]."'>Edit</a>
                 <a href='delete.php?id=".$data[$i]["id_recipe"]."'>Delete</a> <a href='likes.php?id=".$data[$i]["id_recipe"]."'>Likes</a></td> ";
                 echo "</tr>";

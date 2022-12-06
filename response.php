@@ -50,15 +50,13 @@
                 $database->insert("tb_recipes", [
                     "recipe_name" => $_POST["recipe_name"],
                     "id_recipe_category" => $_POST["category"],
+                "id_recipe_ocassion" => $_POST["occasion"],
                     "prep_time" => $_POST["prep_time"],
-                    //"cook_time" => $_POST["cook_time"],
+                   "cook_time" => $_POST["cook_time"],
                    // "total_time" => $_POST["total_time"],
-                    //"id_recipe_level" => $_POST["recipe_level"],
-                    //"id_recipe_ocassion" => $_POST["ocassion"],
-                   // "recipe_description" => $_POST["description"],
+                    "id_recipe_level" => $_POST["recipe_level"],
                     "recipe_image" => $img,
-                   // "recipe_ingredients" => $ingredients
-                   // "id_recipe_ocassion" => $ocassion
+                   "recipe_ingredients" => $ingredients
                 ]);
                 header("location: recipes.php");
 
