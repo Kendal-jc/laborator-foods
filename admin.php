@@ -51,7 +51,7 @@
 
                         <div class="admin-inputs-divs">
                             <h4>Tiempo total:</h4>
-                            <input class="admin-inputs" type="" name="total_time">
+                            <input class="admin-inputs" type="" name="prep_time">
                         </div>
 
                         <div class="admin-inputs-divs">
@@ -112,7 +112,7 @@
                 <div class="col-md prueba-r">
                     <div class="admin-inputs-divs">
                         <h4>Descripción:</h4>
-                        <input class="admin-inputs-h" type="text" name="desciption">
+                        <input class="admin-inputs-h" type="text" name="description">
                     </div>
 
                      <br>
@@ -128,72 +128,8 @@
                     <br>
                     <input class="mt-5 button" type="submit" value="SUBMIT">
 
-                    <script>
-
-       function readURL(input) {
-            if(input.files && input.files[0]){
-                let reader = new FileReader();
-
-                reader.onload = function(e) {
-                    let preview = document.getElementById('preview').setAttribute('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        document.querySelector('#add-ingredient').addEventListener('click', function(){
-            
-            event.preventDefault();
-            let ingredient = document.createElement("div");
-            let id = "ingredient-"+Date.now();
-            ingredient.id = id;
-            document.querySelector('#ingredients').appendChild(ingredient);
-
-            let label = document.createElement("label");
-            label.innerText = "Ingredient";
-            label. setAttribute('for', 'ingredient')
-            document.querySelector('#'+id).appendChild(label);
-
-            let input = document.createElement("input");
-            input.type = "text";
-            input.setAttribute('name', 'ingredients[]');
-            document.querySelector('#'+id).appendChild(input);
-
-            let btn = document.createElement("button");
-            btn.innerText = "remove";
-            btn.addEventListener("click", function(){
-                document.querySelector('#'+id).remove();
-            });
-            document.querySelector('#'+id).appendChild(btn);
-
-        });
-
-   </script>
-                   <!--  <div class="admin-inputs-divs">
-                        <h4>ingredientes:</h4>
-                        <div id="ingredients">
-                        </div>
-                        <button type="button" id="add-ingredient">Add ingredient</button>
-                        <br>
-                        <input type="submit" value="SUBMIT">
-                    </div>
-
-                    <div class="admin-inputs-divs">
-                        <h4>Instrucciones:</h4>
-                        <input class="admin-inputs-h" type="Name">
-                    </div> -->
-
-                   
-                    <!-- <h4 class="">Imagen de la receta:</h4>
-                    <div class="input-group mb-3 admin-inputs-divs">
-                        <input type="file" class="form-control" id="inputGroupFile02">
-                        <label class="input-group-text" for="inputGroupFile02">Subir</label>
-                    </div> -->
-
-                    <!-- <div class=" justify-content-end">
-                        <button class="mt-3 ms-5">Subir receta</button>
-                    </div>-->
+  
+                 
                 </div>
             </div>
         </div>
@@ -201,6 +137,48 @@
 
     </section>
 
+    <script>
+
+function readURL(input) {
+     if(input.files && input.files[0]){
+         let reader = new FileReader();
+
+         reader.onload = function(e) {
+             let preview = document.getElementById('preview').setAttribute('src', e.target.result);
+         }
+
+         reader.readAsDataURL(input.files[0]);
+     }
+ }
+
+ document.querySelector('#add-ingredient').addEventListener('click', function(){
+     
+     event.preventDefault();
+     let ingredient = document.createElement("div");
+     let id = "ingredient-"+Date.now();
+     ingredient.id = id;
+     document.querySelector('#ingredients').appendChild(ingredient);
+
+     let label = document.createElement("label");
+     label.innerText = "Ingredient";
+     label. setAttribute('for', 'ingredient')
+     document.querySelector('#'+id).appendChild(label);
+
+     let input = document.createElement("input");
+     input.type = "text";
+     input.setAttribute('name', 'ingredients[]');
+     document.querySelector('#'+id).appendChild(input);
+
+     let btn = document.createElement("button");
+     btn.innerText = "remove";
+     btn.addEventListener("click", function(){
+         document.querySelector('#'+id).remove();
+     });
+     document.querySelector('#'+id).appendChild(btn);
+
+ });
+
+</script>
    
 </body>
 

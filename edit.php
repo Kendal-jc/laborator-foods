@@ -3,13 +3,7 @@
     
     $categories = $database->select("tb_recipe_category", "*");
     $occasions = $database->select("tb_recipe_ocassions", "*");
-
-    if(isset($_GET)){
-        $data = $database->select("tb_recipes", "*", [
-            "id_recipe" => $_GET["id"]
-            ]);
-        }
-    
+ 
     session_start();
     if(isset($_SESSION["isLoggedIn"])){
 
@@ -25,6 +19,8 @@
         "tb_recipes.recipe_image",
        "tb_recipe_ocassions.recipe_ocassion",
         "tb_recipe_category.recipe_category"
+    ],[
+        "id_recipe" => $_GET["id"]
     ]);
 
     }else{

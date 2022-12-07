@@ -19,7 +19,9 @@
         /* foreach($_POST["ingredients"] as $ingredient){//$ingredient es cada ingrediente en el array
             $ingredients.= $ingredient." ";//despues del espacio se agrega el siguiente ingrediente
         } */
-        foreach($_POST["ingredient"] as $key => $ingredient){
+        var_dump ($_POST);
+
+        foreach($_POST["ingredients"] as $key => $ingredient){
             if($key == array_key_last($_POST["ingredients"])){
                 $ingredients.= $ingredient;
             } else{
@@ -51,14 +53,14 @@
                     "recipe_name" => $_POST["recipe_name"],
                     "id_recipe_category" => $_POST["category"],
                     "id_recipe_ocassion" => $_POST["occasion"],
-                    "recipe_desciption" => $_POST["desciption"],
-                    "total_time" => $_POST["total_time"],
+                    "prep_time" => $_POST["prep_time"],
+                    "recipe_description" => $_POST["description"],
                     "portions" => $_POST["portions"],
                     "id_recipe_level" => $_POST["recipe_level"],
                     "recipe_image" => $img,
-                   "recipe_ingredients" => $ingredients
+                    "recipe_ingredients" => $ingredients
                 ]);
-                header("location: recipes.php");
+                //header("location: recipes.php");
 
             }
 

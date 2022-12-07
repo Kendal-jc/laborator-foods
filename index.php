@@ -5,6 +5,20 @@ require 'db.php';
             'LIMIT' =>11
         ]);
 
+
+
+        $recipe = $database->select("tb_recipes",[
+            
+            "[><]tb_recipe_levels"=>["id_recipe_level" => "id_recipe_level"]
+            
+        ],[
+            "tb_recipes.id_recipe",
+            "tb_recipes.id_recipe_level",
+            "tb_recipe_levels.recipe_level"
+        ],[
+           
+        ]);
+
 ?>
 
 <!DOCTYPE html>

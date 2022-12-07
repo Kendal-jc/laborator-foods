@@ -16,13 +16,10 @@
         "tb_recipes.id_recipe_category",
         "tb_recipes.recipe_name",
         "tb_recipes.prep_time",
-       // "tb_recipes.recipe_total_time",
-       // "tb_recipes.recipe_yields",
         "tb_recipes.recipe_image",
         "tb_recipes.recipe_description",
         "tb_recipes.recipe_likes",
         "tb_recipes.recipe_ingredients",
-        //"tb_recipes.recipe_directions",
         "tb_recipe_category.recipe_category",
         "tb_recipes.id_recipe_level",
         "tb_recipes.id_recipe_ocassion",
@@ -31,13 +28,7 @@
         "tb_recipes.id_recipe" => $_GET["id_recipe"]
     ]);
 
-    //related recipes
-    $related_recipes = $database->select("tb_recipes", "*", [
-        "id_recipe_category" => $recipe[0]["id_recipe_category"],
-        "id_recipe_category" => $recipe[0]["id_recipe_category"],
-        'LIMIT' => 4
-    ]);
-   
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +61,7 @@
     <section class="principal decoration2">
         <header class="header">
             <div class="header-limit">
-                <a href="./foodscode.html"> <img class="logo-header" src="./imgs/Logo (1).png" alt="logo"> </a>
+                <a href="./index.php"> <img class="logo-header" src="./imgs/Logo (1).png" alt="logo"> </a>
                 <div class="search-limit">
                     <div class="group">
                         <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
@@ -88,55 +79,44 @@
         <a href="./foodscode.html"> <img class="back-icon" src="./imgs/atras.png" alt="atras"> </a>
 </section>
 
-    
-            <div class="row g-0 mt-3">
-                <ul class="">
-                    <li class=""><span class='title-md'>Cook time:</span> <?php echo $recipe[0]["prep_time"]; ?></li>
-                    <li class=""><span class='fw-bolder'>Skill level:</span> <?php echo $recipe[0]["recipe_level"]; ?></li>
-                </ul>
-                <a type="button" href="likes.php?id_recipe=<?php echo $recipe[0]["id_recipe"]; ?>" class="btn btn-dark position-relative mt-3 mx-auto likes">
-                    Likes <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    <?php echo $recipe[0]["recipe_likes"]; ?>
-                        <span class="visually-hidden">likes</span>
-                    </span>
-                </a>
-            </div>
-            
-            <div class="row g-0 mt-3">
-                <p class="p-3"><?php echo $recipe[0]["recipe_description"]; ?></p>
-            </div>
+<nav class="details-limit">
+            <div class="row mt-5">
+                <div class="col-md d-flex justify-content-start align-items-center me-4">
+                    <div class="">
+                        <div>
+                            <div class="d-flex justify-content-center">
+                            <?php echo "<img src='../imgs/".$recipe[0]['recipe_image']."'>"; ?>
+                            </div>
+                            <div class="d-flex mt-4 justify-content-center">
+                                <div>
+                                    <div class="d-flex justify-content-center">
+                                        <h1 class="title-ingredients">Gallo pinto</h1>
+                                    </div>
 
-            <div class="row g-0 mt-1">
-                <div class="col-6 p-3">
-                    <h4>Ingredients</h4>
-                    <ul>
-                        <?php 
-                            $ingredients = [];
-                            $ingredients = explode(",", $recipe[0]["recipe_ingredients"]);
+                                    <div class="mt-3 mb-4">
+                                        <ul class="text-aligns-rt">
+                                            <li class="times">10min de cocción:<?php echo $recipe[0]["prep_time"]; ?></li>
+                                        </ul>
+                                    </div>
                         
-                            foreach ($ingredients as $key => $ingredient){
-                                if($key != array_key_last($ingredients)){
-                                    echo "<li>".$ingredient."</li>";
-                                }
-                            }
+                                    <div>
+                                        <div class="d-flex justify-content-center mt-3">
+                                            <h3 class="mx-3 etiqueta food-time">Desayuno</h3>
+                                            <h3 class="mx-3 etiqueta level">Fácil</h3><?php echo $recipe[0]["recipe_level"]; ?>
+                                            <li class="mx-3 etiqueta"><span class=' food-time'>Skill level:</span> <?php echo $recipe[0]["recipe_level"]; ?></li>
 
-                        ?>
-                    </ul>
-
-                    <?php 
-                        echo "<a href='pdf.php?id_recipe=".$recipe[0]["id_recipe"]."' target='blank' class='mt-3 btn btn-outline-secondary'>Download this recipe</a>";
-                    ?>
-
+                                            <h3 class="mx-3 etiqueta likes">20 likes</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-       
-            <div class="row g-0 mt-1">
-                <h4 class='fw-bolder ps-3'>Related recipes</h4>
-            </div>
 
-         
+          
             
-        </div>
-    </div>
+         
 
 
 
