@@ -4,8 +4,6 @@
     $levels = $database->select("tb_recipe_levels","*");
     $categories = $database->select("tb_recipe_category","*");
     $ocassions = $database->select("tb_recipe_ocassions","*");
-
- 
     //recipe
     $recipe = $database->select("tb_recipes",[
         "[><]tb_recipe_category"=>["id_recipe_category" => "id_recipe_category"],
@@ -14,21 +12,24 @@
     ],[
         "tb_recipes.id_recipe",
         "tb_recipes.id_recipe_category",
-        "tb_recipes.recipe_name",
-        "tb_recipes.prep_time",
-        "tb_recipes.recipe_image",
-        "tb_recipes.recipe_description",
-        "tb_recipes.recipe_likes",
-        "tb_recipes.recipe_ingredients",
+        "tb_recipes.recipe_name", 
+       // "tb_recipes.total_time", 
+        //"tb_recipes.cook_time", 
+        "tb_recipes.prep_time", 
+       // "tb_recipes.recipe_yields", 
+        "tb_recipes.recipe_image", 
+        "tb_recipes.recipe_description", 
+        "tb_recipes.recipe_likes", 
+        "tb_recipes.recipe_ingredients", 
+       // "tb_recipes.recipe_directions", 
         "tb_recipe_category.recipe_category",
-        "tb_recipes.id_recipe_level",
-        "tb_recipes.id_recipe_ocassion",
+        "tb_recipes.id_recipe_level", 
+        "tb_recipes.id_recipe_ocassion", 
+        "tb_recipe_ocassions.recipe_ocassion", 
         "tb_recipe_levels.recipe_level"
     ],[
         "tb_recipes.id_recipe" => $_GET["id_recipe"]
     ]);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +78,7 @@
             </div>
         </header>
         <a href="./foodscode.html"> <img class="back-icon" src="./imgs/atras.png" alt="atras"> </a>
-</section>
+
 
 <nav class="details-limit">
             <div class="row mt-5">
@@ -85,27 +86,27 @@
                     <div class="">
                         <div>
                             <div class="d-flex justify-content-center">
-                            <?php echo "<img src='../imgs/".$recipe[0]['recipe_image']."'>"; ?>
+                               <!--<img  src="./imgs/O_m.jpg" alt="img-receta">-->
+                               <?php echo "<img class='w-75' src='./imgs/".$recipe[0]['recipe_image']."'>"; ?>
                             </div>
                             <div class="d-flex mt-4 justify-content-center">
                                 <div>
                                     <div class="d-flex justify-content-center">
-                                        <h1 class="title-ingredients">Gallo pinto</h1>
+                                        <h1 class="title-ingredients">"<?php echo $recipe[0]["recipe_name"]; ?>"</h1>
                                     </div>
 
                                     <div class="mt-3 mb-4">
                                         <ul class="text-aligns-rt">
-                                            <li class="times">10min de cocción:<?php echo $recipe[0]["prep_time"]; ?></li>
+                                            
+                                            <li class="times"><?php echo $recipe[0]["prep_time"];?></li>
                                         </ul>
                                     </div>
-                        
+
                                     <div>
                                         <div class="d-flex justify-content-center mt-3">
-                                            <h3 class="mx-3 etiqueta food-time">Desayuno</h3>
-                                            <h3 class="mx-3 etiqueta level">Fácil</h3><?php echo $recipe[0]["recipe_level"]; ?>
-                                            <li class="mx-3 etiqueta"><span class=' food-time'>Skill level:</span> <?php echo $recipe[0]["recipe_level"]; ?></li>
-
-                                            <h3 class="mx-3 etiqueta likes">20 likes</h3>
+                                            <h3 class="mx-3 etiqueta food-time"><?php echo $recipe[0]["recipe_category"];?></h3>
+                                            <h3 class="mx-3 etiqueta level"><?php echo $recipe[0]["recipe_level"];?></h3>
+                                            <h3 class="mx-3 etiqueta likes"><?php echo $recipe[0]["recipe_likes"];?></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -114,7 +115,21 @@
                     </div>
                 </div>
 
-          
+                <div class="col-md d-flex justify-content-end me-4">
+                    <div>
+                        <div class="text-it">
+                            <h1 class="title-ingredients">Ingredientes</h1>
+                            <p class="ingredients mt-3">
+                            <ul>
+                            <?php echo $recipe[0]["recipe_ingredients"];?>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+       </section>   
             
          
 
@@ -136,7 +151,7 @@
 
 
     <!-- contact us -->
-    <footer class="container-fluid mt-5 text-grn p-0 m-0">
+   <!-- <footer class="container-fluid mt-5 text-grn p-0 m-0">
         <div class="container-footerr">
 
             <p class="badge badge-blue text-start">CONTACT US</p>
@@ -160,7 +175,7 @@
                 </span>
             </div>
         </div>
-    </footer>
+    </footer>-->
 
 </body>
 

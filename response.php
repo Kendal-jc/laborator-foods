@@ -16,11 +16,6 @@
     if(isset($_POST)){
         //var_dump($_POST);
         $ingredients = "";
-        /* foreach($_POST["ingredients"] as $ingredient){//$ingredient es cada ingrediente en el array
-            $ingredients.= $ingredient." ";//despues del espacio se agrega el siguiente ingrediente
-        } */
-        var_dump ($_POST);
-
         foreach($_POST["ingredients"] as $key => $ingredient){
             if($key == array_key_last($_POST["ingredients"])){
                 $ingredients.= $ingredient;
@@ -60,7 +55,7 @@
                     "recipe_image" => $img,
                     "recipe_ingredients" => $ingredients
                 ]);
-                //header("location: recipes.php");
+                header("location: recipes.php");
 
             }
 

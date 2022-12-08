@@ -1,22 +1,31 @@
 <?php
 require 'db.php';
 
-        $recipes = $database->select("tb_recipes","*",[
-            'LIMIT' =>11
-        ]);
-
-
-
-        $recipe = $database->select("tb_recipes",[
-            
-            "[><]tb_recipe_levels"=>["id_recipe_level" => "id_recipe_level"]
-            
+        
+        $recipes = $database->select("tb_recipes",[
+            "[><]tb_recipe_category"=>["id_recipe_category" => "id_recipe_category"],
+            "[><]tb_recipe_levels"=>["id_recipe_level" => "id_recipe_level"],
+            "[><]tb_recipe_ocassions"=>["id_recipe_ocassion" => "id_recipe_ocassion"],
         ],[
             "tb_recipes.id_recipe",
-            "tb_recipes.id_recipe_level",
-            "tb_recipe_levels.recipe_level"
+            "tb_recipes.id_recipe_category",
+            "tb_recipes.recipe_name", 
+           // "tb_recipes.total_time", 
+            //"tb_recipes.cook_time", 
+            "tb_recipes.prep_time", 
+           // "tb_recipes.recipe_yields", 
+            "tb_recipes.recipe_image", 
+            "tb_recipes.recipe_description", 
+            "tb_recipes.recipe_likes", 
+            "tb_recipes.recipe_ingredients", 
+           // "tb_recipes.recipe_directions", 
+            "tb_recipe_category.recipe_category",
+            "tb_recipes.id_recipe_level", 
+            "tb_recipes.id_recipe_ocassion", 
+            "tb_recipe_ocassions.recipe_ocassion", 
+            "tb_recipe_levels.recipe_level" 
         ],[
-           
+            'LIMIT' => 11
         ]);
 
 ?>
@@ -118,15 +127,15 @@ require 'db.php';
                 foreach ($recipes as $recipe){
                     echo"<div class='col mt-4 d-flex justify-content-center'>
                             <div class='card cardss' style='width: 18rem;'>
-                                <img src='./imgs/".$recipe["recipe_image"]."' class='card-img-top mt-3 p-2' alt='".$recipe["recipe_name"]."'>
+                                <img src='./imgs/".$recipe["recipe_image"]."' class='card-img-top mt-3 p-2' alt='".$recipe["recipe_image"]."'>
                                 <div class='card-body'>
-                                    <a class='card-title pointer text-decoration-none text-center d-block category text-truncate' href='./detalle.php'>".$recipe["recipe_name"]."</a>
+                                    <p class='card-title pointer text-decoration-none text-center d-block category text-truncate' href='./detalle.php'>".$recipe["recipe_name"]."</p>
                                     <p class='card-text text-center mt-3'>
-                                        <img src='./imgs/like.png' alt='like' style='width:2em;'>
+                                    <a href='detalle.php?id_recipe=".$recipe["id_recipe"]."'>Ver</a>
                                     </p>
-                                    <div class='row'>
+                                    <div class='row d-flex justify-space-around'>
                                         <div class='col-7 author-fd text-truncate'>".utf8_decode($recipe["prep_time"])."</div>
-                                        <div class='col-5 ps-5 authorleft'>".utf8_decode($recipe["id_recipe_level"])."</div>
+                                        <div class='col-5  authorleft d-flex justify-content-end pe-5'>".utf8_decode($recipe["recipe_level"])."</div>
                                     </div>
                                 </div>
                             </div>

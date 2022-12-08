@@ -46,7 +46,7 @@
         <input type="text" name="recipe" value="<?php echo $data[0]["recipe_name"]; ?>">
         <label for="category">Category:</label>
         <select name="category" id="">
-        <?ph<?php 
+        <?php 
                 $len = count($categories);
                 for($i=0; $i < $len; $i++) {
                     if($data[0]["id_recipe_category"] == $categories[$i]['id_recipe_category']){
@@ -112,7 +112,7 @@
     </form>
 
     <script>
-  function readURL(input) {
+    function readURL(input) {
             if(input.files && input.files[0]){
                 let reader = new FileReader();
 
