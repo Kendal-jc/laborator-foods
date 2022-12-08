@@ -136,7 +136,19 @@
         </form>
 
     </section>
-
+    <section class="admin-page">
+        <div class="container mt-sect">
+            
+    <div class="mb-1">
+    <div class="food-type-limit mt-1 header-limit">
+            <div class="flip">
+                <a href="recipes.php" target="_blank">
+                    <div class="front mt-3 ms-3 float-right title-md">Recetas</div>
+                    <div class="back mt-3 ms-3 float-right title-lg">Subidas</div>
+                </a>
+            </div>
+        </div>
+    </div>
     <script>
 
 function readURL(input) {

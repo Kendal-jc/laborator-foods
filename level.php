@@ -109,12 +109,11 @@ $ocassions = $database->select("tb_recipe_ocassions","*");
         </div>
         <?php 
                 foreach ($levels as $level){
-                    // echo "<div class='col mt-4 d-flex justify-content-center'><a class='card cardss card-title pointer text-decoration-none text-center d-block category text-truncate' 6style='width: 18rem;' href='recipe _p.php?category=".$category['id_recipe_category']."&name=".$category['recipe_category']."'>".$category['recipe_category']."</a></div>";-->
                     echo"<div class='col mt-4 d-flex justify-content-center'>
                     <div class='card cardss' style='width: 18rem;'>
                         <img src='./imgs/".utf8_decode($level["recipe_level"]).".jpg' class='card-img-top mt-3 p-2'>
                         <div class='card-body'>
-                            <a class='card-title pointer text-decoration-none text-center d-block category text-truncate' href='recipe _p.php?category=".$level['id_recipe_level']."&name=".$level['recipe_level']."'>".$level['recipe_level']."</a>
+                            <a class='card-title pointer text-decoration-none text-center d-block category text-truncate' href='recipe _p.php?level=".$level['id_recipe_level']."&name=".$level['recipe_level']."'>".$level['recipe_level']."</a>
                         </div>
                     </div>
                 </div>";

@@ -9,7 +9,7 @@
             'host' => 'localhost',
             'database' => 'recipes',
             'username' => 'root',
-            'password' => ''
+            'password' => '0600PDJ'
         ]);
     }
 ?>

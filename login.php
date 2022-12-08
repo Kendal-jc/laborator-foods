@@ -17,7 +17,7 @@
                 $_SESSION["isLoggedIn"] = true;
                 $_SESSION["username"] = $user[0]["user_name"];
                 //redireccionar
-                header("Location: recipes.php");
+                header("Location: admin.php");
 
             }else{
                 echo "wrong username or password";

@@ -9,9 +9,7 @@ require 'db.php';
         ],[
             "tb_recipes.id_recipe",
             "tb_recipes.id_recipe_category",
-            "tb_recipes.recipe_name", 
-           // "tb_recipes.total_time", 
-            //"tb_recipes.cook_time", 
+            "tb_recipes.recipe_name",  
             "tb_recipes.prep_time", 
            // "tb_recipes.recipe_yields", 
             "tb_recipes.recipe_image", 
@@ -25,7 +23,7 @@ require 'db.php';
             "tb_recipe_ocassions.recipe_ocassion", 
             "tb_recipe_levels.recipe_level" 
         ],[
-            'LIMIT' => 11
+            'LIMIT' => 12
         ]);
 
 ?>

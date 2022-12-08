@@ -13,15 +13,11 @@
         "tb_recipes.id_recipe",
         "tb_recipes.id_recipe_category",
         "tb_recipes.recipe_name", 
-       // "tb_recipes.total_time", 
-        //"tb_recipes.cook_time", 
         "tb_recipes.prep_time", 
-       // "tb_recipes.recipe_yields", 
         "tb_recipes.recipe_image", 
         "tb_recipes.recipe_description", 
         "tb_recipes.recipe_likes", 
         "tb_recipes.recipe_ingredients", 
-       // "tb_recipes.recipe_directions", 
         "tb_recipe_category.recipe_category",
         "tb_recipes.id_recipe_level", 
         "tb_recipes.id_recipe_ocassion", 
@@ -29,6 +25,13 @@
         "tb_recipe_levels.recipe_level"
     ],[
         "tb_recipes.id_recipe" => $_GET["id_recipe"]
+    ]);
+
+      //related recipes
+      $related_recipes = $database->select("tb_recipes", "*", [
+        "id_recipe_category" => $recipe[0]["id_recipe_category"],
+        "id_recipe_category" => $recipe[0]["id_recipe_category"],
+        'LIMIT' => 4
     ]);
 ?>
 <!DOCTYPE html>
@@ -80,7 +83,7 @@
         <a href="./foodscode.html"> <img class="back-icon" src="./imgs/atras.png" alt="atras"> </a>
 
 
-<nav class="details-limit">
+<div class="details-limit">
             <div class="row mt-5">
                 <div class="col-md d-flex justify-content-start align-items-center me-4">
                     <div class="">
@@ -107,6 +110,12 @@
                                             <h3 class="mx-3 etiqueta food-time"><?php echo $recipe[0]["recipe_category"];?></h3>
                                             <h3 class="mx-3 etiqueta level"><?php echo $recipe[0]["recipe_level"];?></h3>
                                             <h3 class="mx-3 etiqueta likes"><?php echo $recipe[0]["recipe_likes"];?></h3>
+                                            <a type="button" href="likes.php?id_recipe=<?php echo $recipe[0]["id_recipe"]; ?>">
+                    Likes <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <?php echo $recipe[0]["recipe_likes"]; ?>
+                        <span class="visually-hidden">likes</span>
+                    </span>
+                </a>
                                         </div>
                                     </div>
                                 </div>
@@ -127,31 +136,42 @@
                     </div>
                 </div>
             </div>
-        </nav>
+
+            <div class="col-md d-flex justify-content-end me-4">
+                    <div>
+                        <div class="text-it">
+                            <h1 class="title-ingredients">Descripcion</h1>
+                            <p class="ingredients mt-3">
+                            <ul>
+                            <?php 
+                            $description = [];
+                            $descriptions = explode(",", $recipe[0]["recipe_description"]);
+                        
+                            foreach ($descriptions as $key => $description){
+                                if($key != array_key_last($descriptions)){
+                                    echo "<li>".$description."</li>";
+                                }
+                            }
+
+                        ?>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+</div>
 
        </section>   
             
          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
     <!-- contact us -->
-   <!-- <footer class="container-fluid mt-5 text-grn p-0 m-0">
+  <footer class="container-fluid mt-5 text-grn p-0 m-0">
         <div class="container-footerr">
 
             <p class="badge badge-blue text-start">CONTACT US</p>
@@ -175,7 +195,7 @@
                 </span>
             </div>
         </div>
-    </footer>-->
+    </footer>
 
 </body>
 

@@ -17,12 +17,10 @@ require 'db.php';
     $data = $database->select("tb_recipes", "*", [
         "id_recipe" => $_POST["id"]
     ]);
-
     if($_FILES["recipe_image"]["name"] == ""){
-        //echo "no files";
+        
         $img = $data[0]["recipe_image"];
     } else {
-        //echo "files";
             if(isset($_FILES["recipe_image"])){
                 $error = array();
                 $file_name = $_FILES["recipe_image"]["name"];
@@ -71,15 +69,4 @@ require 'db.php';
 
     header("location: recipes.php");
                      
-
-/* $database->update("tb_recipes", [
-    "recipe_name"=>$_POST["recipe"],
-    "recipe_category"=>$_POST["category"],
-    "recipe_time"=>$_POST["time"]
-],[
-    "id_recipe"=>$_POST["id"]
-]);
-
-    header("location: recipes.php");
- */
 ?>

@@ -11,10 +11,7 @@
         }
         return $randomString;
     }
-
-    // array -> $items = [];
     if(isset($_POST)){
-        //var_dump($_POST);
         $ingredients = "";
         foreach($_POST["ingredients"] as $key => $ingredient){
             if($key == array_key_last($_POST["ingredients"])){
@@ -30,7 +27,7 @@
             $file_size = $_FILES["recipe_image"]["size"];
             $file_tmp = $_FILES["recipe_image"]["tmp_name"];
             $file_type = $_FILES["recipe_image"]["type"];
-            $file_ext_arr = explode(".", $_FILES["recipe_image"]["name"]); //explote descompone el string
+            $file_ext_arr = explode(".", $_FILES["recipe_image"]["name"]);
 
             $file_ext = end($file_ext_arr);
             $img_ext = array("jpeg","png", "jpg", "gif");
@@ -40,7 +37,7 @@
             }
 
             if(empty($errors)){
-                $img = "recipe-upload-".generateRandomString().".".$file_ext;//genera el nombre
+                $img = "recipe-upload-".generateRandomString().".".$file_ext;
                 move_uploaded_file($file_tmp, "imgs/".$img);
 
 
@@ -65,12 +62,4 @@
 
        
     }
-
-   /*  if(isset($_POST)){
-    $database->insert("tb_recipe_category", [
-        "recipe_category" => $_POST["category"],
-    ]);
-        header("location: recipes.php");
-    } */
-
 ?>
