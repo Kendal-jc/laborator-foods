@@ -82,11 +82,12 @@ $ocassions = $database->select("tb_recipe_ocassions","*");
 <body>
     <section class="principal">
 
-        <header class="header">
+    <header class="header">
             <div class="header-limit">
-                <a href="./foodscode.html"> <img class="logo-header" src="./imgs/Logo (1).png" alt="logo"> </a>
+                <a href="./index.php"> <img class="logo-header" src="./imgs/Logo (1).png" alt="logo"> </a>
+              
                 <div class="search-limit">
-                    <div class="group">
+                    <form class="group" action="search.php" method="get" role="search">
                         <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
                             <g>
                                 <path
@@ -94,12 +95,13 @@ $ocassions = $database->select("tb_recipe_ocassions","*");
                                 </path>
                             </g>
                         </svg>
-                        <input placeholder="¿Qué vas a comer?" type="search" class="input">
-                    </div>
+                        <input placeholder="search" type="search" class="input" name="keyword">
+                        <button type="submit">Search</button>
+                  </form>
                 </div>
+          
             </div>
         </header>
-        <a href="./index.php"> <img class="back-icon" src="./imgs/atras.png" alt="atras"> </a>
 
      
 

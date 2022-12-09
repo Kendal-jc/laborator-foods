@@ -14,6 +14,11 @@
     background: #BFB5B6;
 }
 
+.like-icon{
+   font-size: 30px;
+    color: red;
+}
+
 .food-time {
     background: #B9B2E5;
 }
@@ -27,10 +32,7 @@
     background: #D3D0E3;
 }
 
-.decoration2 {
-    background: #E3D0D0;
 
-}
 
 .ingredients {
     font-size: 25px;

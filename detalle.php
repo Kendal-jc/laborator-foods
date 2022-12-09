@@ -52,7 +52,9 @@
     <!---Bootsrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <!--Iconos-->
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!--fronts.css-->
     <link rel="stylesheet" href="./css/Components/front.css">
@@ -63,11 +65,12 @@
 
 <body>
     <section class="principal decoration2">
-        <header class="header">
-            <div class="header-limit">
-                <a href="./index.php"> <img class="logo-header" src="./imgs/Logo (1).png" alt="logo"> </a>
-                <div class="search-limit">
-                    <div class="group">
+    <header class="header">
+    <div class="header-limit">
+        <a href="./index.php"> <img class="logo-header" src="./imgs/Logo (1).png" alt="logo"> </a>
+       
+        <div class="search-limit">
+                    <form class="group" action="search.php" method="get" role="search">
                         <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
                             <g>
                                 <path
@@ -75,14 +78,11 @@
                                 </path>
                             </g>
                         </svg>
-                        <input placeholder="¿Qué vas a comer?" type="search" class="input">
-                    </div>
-                </div>
-            </div>
-        </header>
-        <a href="./foodscode.html"> <img class="back-icon" src="./imgs/atras.png" alt="atras"> </a>
-
-
+                        <input placeholder="search" type="search" class="input" name="keyword">
+                        <button type="submit">Search</button>
+                  </form>
+                </div>           
+</header>
 <div class="details-limit">
             <div class="row mt-5">
                 <div class="col-md d-flex justify-content-start align-items-center me-4">
@@ -99,8 +99,7 @@
                                     </div>
 
                                     <div class="mt-3 mb-4">
-                                        <ul class="text-aligns-rt">
-                                            
+                                        <ul class="text-aligns-rt">                                            
                                             <li class="times"><?php echo $recipe[0]["prep_time"];?></li>
                                         </ul>
                                     </div>
@@ -109,13 +108,10 @@
                                         <div class="d-flex justify-content-center mt-3">
                                             <h3 class="mx-3 etiqueta food-time"><?php echo $recipe[0]["recipe_category"];?></h3>
                                             <h3 class="mx-3 etiqueta level"><?php echo $recipe[0]["recipe_level"];?></h3>
-                                            <h3 class="mx-3 etiqueta likes"><?php echo $recipe[0]["recipe_likes"];?></h3>
-                                            <a type="button" href="likes.php?id_recipe=<?php echo $recipe[0]["id_recipe"]; ?>">
-                    Likes <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    <?php echo $recipe[0]["recipe_likes"]; ?>
-                        <span class="visually-hidden">likes</span>
-                    </span>
-                </a>
+                                            <div class="d-flex align-items-center">
+                                                <h3 class="mx-3 etiqueta likes"><?php echo $recipe[0]["recipe_likes"];?></h3>
+                                                <a href="likes.php?id_recipe=<?php echo $recipe[0]["id_recipe"]; ?>"><i class="fa-solid fa-heart hearth-xl like-icon"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -140,7 +136,7 @@
             <div class="col-md d-flex justify-content-end me-4">
                     <div>
                         <div class="text-it">
-                            <h1 class="title-ingredients">Descripcion</h1>
+                            <h1 class="title-ingredients">Instruciones</h1>
                             <p class="ingredients mt-3">
                             <ul>
                             <?php 

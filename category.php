@@ -82,11 +82,12 @@ $ocassions = $database->select("tb_recipe_ocassions","*");
 <body>
     <section class="principal">
 
-        <header class="header">
-            <div class="header-limit">
-                <a href="./foodscode.html"> <img class="logo-header" src="./imgs/Logo (1).png" alt="logo"> </a>
-                <div class="search-limit">
-                    <div class="group">
+    <header class="header">
+    <div class="header-limit">
+        <a href="./index.php"> <img class="logo-header" src="./imgs/Logo (1).png" alt="logo"> </a>
+       
+        <div class="search-limit">
+                    <form class="group" action="search.php" method="get" role="search">
                         <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
                             <g>
                                 <path
@@ -94,13 +95,11 @@ $ocassions = $database->select("tb_recipe_ocassions","*");
                                 </path>
                             </g>
                         </svg>
-                        <input placeholder="¿Qué vas a comer?" type="search" class="input">
-                    </div>
-                </div>
-            </div>
-        </header>
-        <a href="./index.php"> <img class="back-icon" src="./imgs/atras.png" alt="atras"> </a>
-
+                        <input placeholder="search" type="search" class="input" name="keyword">
+                        <button type="submit">Search</button>
+                  </form>
+                </div>           
+</header>
   <div class="row gap-3 d-flex justify-content-center" style="padding-top: 5rem;">
         <div class="container-fluid d-flex justify-content-center">
             <h2 class="mt-3 title-xxlg">Category</h2>

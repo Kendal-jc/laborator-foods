@@ -23,7 +23,6 @@ require 'db.php';
             "tb_recipe_ocassions.recipe_ocassion", 
             "tb_recipe_levels.recipe_level" 
         ],[
-            'LIMIT' => 10
         ]);
 
 ?>
@@ -64,11 +63,11 @@ require 'db.php';
 </head>
 
 <body>
-    <section class="principal testimonial1">
+    <section>
 
         <header class="header">
             <div class="header-limit">
-                <a href="./foodscode.html"> <img class="logo-header" src="./imgs/Logo (1).png" alt="logo"> </a>
+                <a href="./index.php"> <img class="logo-header" src="./imgs/Logo (1).png" alt="logo"> </a>
               
                 <div class="search-limit">
                     <form class="group" action="search.php" method="get" role="search">
@@ -87,41 +86,13 @@ require 'db.php';
             </div>
         </header>
 
-        <div class="text-white text-center me-1 mt-xxl-5">
-            <div class="col-md">
-                <h1 class="title-xxxlg tittle">Alegría al <span class="text-nrj title-xxxlg"> cocinar </span></h1>
-                <p class="title-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nulla modi
-                    reprehenderit at kkkkk</p>
-            </div>
-
-        </div>
+      
     </section>
-
-
-    <div class="text-center mt-xl-5">
-        <div class="container-fluid d-flex justify-content-center mt-lg-5 mb-xl-5">
-            <h2 class="mt-5 title-xxlg tit-cn">¿Qué vas a cocinar hoy?</h2>
-        </div>
-        <ul class="nav mt-auto d-inline-flex display-3 mb-md-1">
-            <li>
-                <a class="btn btn-primary btnn" href="category.php">Categorias</a>
-            </li>
-
-            <li>
-                <a class="btn btn-primary btnn" href="occasions.php">Ocasiones</a>
-            <li>
-                <a class="btn btn-primary btnn" href="level.php">Dificultad</a>
-            </li>
-            <li>
-                <a class="btn btn-primary btnn" href="todas.php">Todas</a>
-            </li>
-        </ul>
-    </div>
 
     <div class="container margin-tp">
         <div class="mb-1">
             <div class="food-type-limit mt-1 header-limit">
-                <h2 class="mt-3 ms-3 float-right title-lg margin-t">Top 10 en recetas</h2>
+                <h2 class="mt-3 ms-3 float-right title-lg margin-t">Todas las recetas</h2>
             </div>
         </div>
 
@@ -147,35 +118,10 @@ require 'db.php';
             ?>
 </div>
 
-        <!-- </section>-->
-        <div class="container-md d-flex justify-content-center mt-xl-5 mt-5">
-            <p class="title-xxlg tit-cn">Lo más reciente</p>
-        </div>
+    
+      
 
-        <section class="container-fluid d-flex justify-content-center">
-
-            <div class="col d-flex justify-content-center ">
-                <div class="card" style="width: 18rem;">
-                    <img src="./imgs/fearudd.jpg" class="card-img-top mt-3 p-2" alt="receta">
-                    <div class="card-body">
-                        <a class="card-title pointer text-decoration-none text-center d-block category"
-                            href="./detalle.html">
-                            Sandwich</a>
-                        <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
-                        </p>
-                        <div class="row">
-                            <div class="col-7 author-fd">60 min</div>
-                            <div class="col-5 ps-5 authorleft">Fácil</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            </section>
-        </div>
-
-    <!-- contact us -->
+<section>
     <footer class="container-fluid mt-5 text-grn p-0 m-0">
         <div class="container-footerr">
 
@@ -202,7 +148,7 @@ require 'db.php';
         </div>
         
     </footer>
-
+</section>
 
 </body>
 
