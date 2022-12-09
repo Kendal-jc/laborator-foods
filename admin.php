@@ -30,9 +30,6 @@
                     <h1 class="tittle-admin-h">Perfil de administrador</h1>
                 </div>
             </div>
-            <div class=" justify-content-end">
-                <button class="button mt-3">Cerrar sesión</button>
-            </div>
         </header>
 
 

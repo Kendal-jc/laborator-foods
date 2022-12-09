@@ -80,7 +80,7 @@ require 'db.php';
                             </g>
                         </svg>
                         <input placeholder="search" type="search" class="input" name="keyword">
-                        <button type="submit">Search</button>
+                        <button class="btn m-2"><span class="btn-text" type="submit">Search</button>
                   </form>
                 </div>
           
@@ -156,13 +156,13 @@ require 'db.php';
 
             <div class="col d-flex justify-content-center ">
                 <div class="card" style="width: 18rem;">
-                    <img src="./imgs/fearudd.jpg" class="card-img-top mt-3 p-2" alt="receta">
+                    <img src="./imgs/recipe-upload-DDAMKjYsau.jpg" class="card-img-top mt-3 p-2" alt="receta">
                     <div class="card-body">
                         <a class="card-title pointer text-decoration-none text-center d-block category"
                             href="./detalle.html">
                             Sandwich</a>
                         <p class="card-text text-center mt-3">
-                            <img src="./imgs/like.png" alt="like" style="width:2em;">
+                                <a href="detalle.php">Ver</a>                   
                         </p>
                         <div class="row">
                             <div class="col-7 author-fd">60 min</div>

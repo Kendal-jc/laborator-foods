@@ -79,7 +79,7 @@ require 'db.php';
                             </g>
                         </svg>
                         <input placeholder="search" type="search" class="input" name="keyword">
-                        <button type="submit">Search</button>
+                        <button class="btn m-2"><span class="btn-text" type="submit">Search</button>
                   </form>
                 </div>
           
@@ -90,10 +90,9 @@ require 'db.php';
     </section>
 
     <div class="container margin-tp">
-        <div class="mb-1">
-            <div class="food-type-limit mt-1 header-limit">
-                <h2 class="mt-3 ms-3 float-right title-lg margin-t">Todas las recetas</h2>
-            </div>
+    <div class="row gap-3 d-flex justify-content-center" style="padding-top: 5rem;">
+        <div class="container-fluid d-flex justify-content-center">
+            <h2 class="mt-3 title-xxlg">Todas las recetas</h2>
         </div>
 
         <div class="row gap-3 d-flex justify-content-center" style="padding-top: 5rem;">

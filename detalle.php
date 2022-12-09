@@ -79,7 +79,7 @@
                             </g>
                         </svg>
                         <input placeholder="search" type="search" class="input" name="keyword">
-                        <button type="submit">Search</button>
+                        <button class="btn m-2"><span class="btn-text" type="submit">Search</button>
                   </form>
                 </div>           
 </header>
@@ -107,10 +107,12 @@
                                     <div>
                                         <div class="d-flex justify-content-center mt-3">
                                             <h3 class="mx-3 etiqueta food-time"><?php echo $recipe[0]["recipe_category"];?></h3>
+                                            <h3 class="mx-3 etiqueta food-time"><?php echo $recipe[0]["recipe_ocassion"];?></h3>
                                             <h3 class="mx-3 etiqueta level"><?php echo $recipe[0]["recipe_level"];?></h3>
                                             <div class="d-flex align-items-center">
                                                 <h3 class="mx-3 etiqueta likes"><?php echo $recipe[0]["recipe_likes"];?></h3>
-                                                <a href="likes.php?id_recipe=<?php echo $recipe[0]["id_recipe"]; ?>"><i class="fa-solid fa-heart hearth-xl like-icon"></i></a>
+                                                <a href="likes.php?id_recipe=<?php echo $recipe[0]["id_recipe"]; ?>"><i class="fa-solid fa-heart hearth-xl like-icon"></i></a>   
+
                                             </div>
                                         </div>
                                     </div>

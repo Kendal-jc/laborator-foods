@@ -36,15 +36,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+    <!--fonts roboto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:ital,wght@1,900&display=swap"
+        rel="stylesheet">
+
+    <!--fonts oswald-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Oswald:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!---Bootsrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+    <!--Iconos-->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!--fronts.css-->
+    <link rel="stylesheet" href="./css/Components/front.css">
+    <link rel="stylesheet" href="./css/frontsprincipa.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
-    <h1>Edit Recipe</h1>
+ <section  class="testimonial2"> 
+<header class="admin-header mt-3">
+            <div class="admin-limit">
+                <div class="d-flex justify-content-center">
+                    <h1 class="tittle-admin-h title-lgg">Editar recetas</h1>
+                </div>
+            </div>
+        </header>
+<section class="container-fluid d-flex justify-content-center mt-lg-5 mb-xl-5">
+   
     <form action="update.php" method="post" enctype="multipart/form-data"> <!--atributo para enviar archivos desde el form-->
 
-        <label for="recipe">Recipe</label>
+        <label class="title-sm" for="recipe">Recipe name:</label>
         <input type="text" name="recipe" value="<?php echo $data[0]["recipe_name"]; ?>">
-        <label for="category">Category:</label>
+        <label class="title-sm"  for="category">Category:</label>
         <select name="category" id="">
         <?php 
                 $len = count($categories);
@@ -60,7 +93,7 @@
 
         </select>
 
-        <label for="ocassion">Occasions:</label>
+        <label class="title-sm"  for="ocassion">Occasions:</label>
         <select name="recipe_ocassion" id="">
     <?php 
                 $len = count($occasions);
@@ -75,42 +108,61 @@
             ?>
  </select>
         
-        <label for="time">Prep. time</label>
+        <label class="title-sm"  for="time">Prep. time</label>
         <input type="text" name="time" value="<?php echo $data[0]["prep_time"]; ?>">
-
-        <label for="description">Description:</label>
+       
+        <label class="title-sm"  for="description">Description:</label>
         <input type="text" name="description" value="<?php echo $data[0]["recipe_description"]; ?>">
         
+        <div class="container-fluid d-flex justify-content-center mt-lg-5 mb-xl-5">
         <br>
-        <label for="recipe_image">Imagen principal</label>
+        <label class="title-sm"  for="recipe_image">Imagen principal</label>
         <img id="preview" src="./imgs/<?php echo $data[0]["recipe_image"]; ?>" width="125" height="125" alt="Preview">
         <input id="recipe_image" type="file" name="recipe_image" onchange="readURL(this)">
         <br>
+        </div>
+        
+        
 
         
-        <p>Ingredients</p>        
-        <div id="ingredients">
-            <?php
-                $ingredients = [];
-                $ingredients = explode(",", $data[0]["recipe_ingredients"]);
-                //echo count($ingredients);
-                foreach ($ingredients as $ingredient) {
-                    echo "<div>";
-                    echo "<label>Ingredient</label>";
-                    echo "<input type='text' name='ingredients[]' value='$ingredient'>";
-                      echo "<button class='remove-ingredient'>remove</button>";
-                    echo "</div>";
-                }
-            ?>    
-        </div>  
+     
+        <br>     
+        <div class="container-fluid d-flex justify-content-center mt-lg-5 mb-xl-5">
+            <div  id="ingredients">
+                <?php
+                    $ingredients = [];
+                    $ingredients = explode(",", $data[0]["recipe_ingredients"]);
+                    foreach ($ingredients as $ingredient) {
+                        echo "<div>";
+                        echo "<label>Ingredient</label>";
+                        echo "<input type='text' name='ingredients[]' value='$ingredient'>";
+                        echo "<button class='remove-ingredient'>remove</button>";
+                        echo "</div>";
+                    }
+                ?>    
+            </div>  
+        </div> 
+       
         <br>  
-        <button type="button" id="add-ingredient">Add ingredient</button>
         <br>
+        <div class="container-fluid d-flex justify-content-center mt-1 mb-xl-5">
+        <ul style="margin-left">
+                 <li>
+                 <button type="button" id="add-ingredient">Add ingredient</button>
+                    <input type="hidden" name="id" value="<?php echo $data[0]["id_recipe"]; ?>">
+                </li>
 
-        <input type="hidden" name="id" value="<?php echo $data[0]["id_recipe"]; ?>">
-        <input type="submit" value="SUBMIT">
+                <li>
+                    <input class="btn" type="submit" value="SUBMIT">
+                </li>
+        </ul>
+        </div>
+      
+
     </form>
+</section>
 
+</section>
     <script>
     function readURL(input) {
             if(input.files && input.files[0]){

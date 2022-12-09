@@ -17,7 +17,15 @@
     text-decoration: none;
     font-style: none;
 }
-
+.testimonial2{
+  min-height: 100vh;
+  margin: auto;
+  background-image: url(../imgs/textura3.jpg);
+    background-repeat: no-repeat;
+  background-image: cover;
+  background-size: cover;
+  height: 1200px;
+}
 .testimonial1 {
     min-height: 100vh;
     margin: auto;
@@ -154,11 +162,11 @@
     -o-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    -webkit-transition-delay: 0.15s;
-    -moz-transition-delay: 0.15s;
-    -o-transition-delay: 0.15s;
-    -ms-transition-delay: 0.15s;
-    transition-delay: 0.15s;
+    -webkit-transition-delay: 0.5s;
+    -moz-transition-delay: 0.5s;
+    -o-transition-delay: 0.5s;
+    -ms-transition-delay: 0.5s;
+    transition-delay: 0.5;
   }
   .flip a:hover {
     -webkit-transform: translateZ(-24px) rotateX(-90deg);
@@ -169,19 +177,19 @@
   }
   .flip a:hover .front {
     background: #000;
-    -webkit-transition: all 0.8s ease;
-    -moz-transition: all 0.8s ease;
-    -o-transition: all 0.8s ease;
-    -ms-transition: all 0.8s ease;
-    transition: all 0.8s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
   }
   .flip a:hover .back {
     color: #222;
-    -webkit-transition: color 0.4s linear;
-    -moz-transition: color 0.4s linear;
-    -o-transition: color 0.4s linear;
-    -ms-transition: color 0.4s linear;
-    transition: color 0.4s linear;
+    -webkit-transition: color 0.2s linear;
+    -moz-transition: color 0.2s linear;
+    -o-transition: color 0.2s linear;
+    -ms-transition: color 0.2s linear;
+    transition: color 0.2s linear;
     background: #fff;
   }
   .flip a:hover .back:after {
@@ -193,4 +201,3 @@
   }
 
 
-/*btn admin*/

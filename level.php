@@ -96,7 +96,7 @@ $ocassions = $database->select("tb_recipe_ocassions","*");
                             </g>
                         </svg>
                         <input placeholder="search" type="search" class="input" name="keyword">
-                        <button type="submit">Search</button>
+                        <button class="btn m-2"><span class="btn-text" type="submit">Search</button>
                   </form>
                 </div>           
 </header>
